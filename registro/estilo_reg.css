@@ -1,0 +1,85 @@
+
+h2{
+   margin: 20px 0px 50px 150px;
+    font-family:monospace;
+    font-size: 30px;
+    text-shadow: 0.1em 0.1em #BDBDBD;
+
+}
+h4{
+    margin: 10px 0 10px 0;
+    font-family:cursive;
+
+
+}
+
+#izq{
+    padding-left: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+
+    width:400px;
+    margin-top: 0;
+    margin-left: 15%;
+    float: left;
+    -webkit-box-shadow: 2px 2px 10px #999;
+
+}
+#der{
+    padding-left: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+
+    width:400px;
+    float: right;
+    margin-right: 15%;
+    -webkit-box-shadow: 2px 2px 10px #999;
+}
+
+
+
+
+#der input, #izq input{
+    border: solid black 1px;
+    width: 250px;
+    -webkit-box-shadow: 2px 2px 5px #999;
+    margin-bottom: -10px;
+}
+
+#der input:focus:invalid,#izq input:focus:invalid {
+    background-image: url(../images/iconos_inputs/cross.png);
+    background-position: right top;
+    background-repeat: no-repeat;
+  }
+#der input:required:valid,#izq input:required:valid {
+    background-image: url(../images/iconos_inputs/tick.png);
+    background-position: right top;
+    background-repeat: no-repeat;
+  }
+
+label{
+    font-weight: bold;
+    font-size: 13px;
+}
+
+
+
+/*-------------------------------------------Botón Enviar---------------------------------------------------*/
+#enviar{
+    margin: 20px 250px 0 0;
+    float: right;
+    width: 100px;
+    height: 25px;
+    border-radius: 5px;
+    border:solid black 0px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    -webkit-box-shadow: 2px 2px 5px #999;
+    cursor:pointer;
+
+
+}
+#enviar:hover{
+    background: #DF0101;
+}

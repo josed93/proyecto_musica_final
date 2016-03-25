@@ -435,46 +435,31 @@ $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
 
 
       </div>
-      <div class="tab-pane fade container" id="profile2">';
-      ?>
-      <?php
-      $connection0 = new mysqli($db_host, $db_user, $db_password, $db_name);
 
-             if ($connection0->connect_errno) {
-                printf("Conexión fallida %s\n", $mysqli->connect_error);
-                exit();
-            }
-
-
-         $result0 = $connection0->query("SELECT U.STYLE FROM USUARIO U");
-         while($obj=$result->fetch_Object()){
-           $tema=$obj->STYLE;
-            }
-
-
+        <div class="tab-pane fade container" id="profile2">';
 
           echo '<div class="radio">
             <label>
-              <input type="radio" name="opciones" id="opciones_0" value="'.$tema[0].'">
+              <input type="radio" name="opciones" id="opciones_0" value="0" >
               Tema por defecto
             </label>
 
           </div>
           <div class="radio">
           <label>
-            <input type="radio" name="opciones" id="opciones_1" value="'.$tema[1].'">
+            <input type="radio" name="opciones" id="opciones_1" value="1" >
             Tema verde
           </label>
           </div>
           <div class="radio">
           <label>
-            <input type="radio" name="opciones" id="opciones_2" value="'.$tema[2].'">
+            <input type="radio" name="opciones" id="opciones_2" value="2" >
             Tema naranja
           </label>
           </div>
           <div class="radio">
           <label>
-            <input type="radio" name="opciones" id="opciones_3" value="'.$tema[3].'">
+            <input type="radio" name="opciones" id="opciones_3" value="3">
             Tema rojo
           </label>
           </div>
@@ -550,6 +535,8 @@ $connection2 = new mysqli($db_host, $db_user, $db_password, $db_name);
 
     }
     //AÑADE UN TEMA AL USUARIO
+
+
     $connection5 = new mysqli($db_host, $db_user, $db_password, $db_name);
 
            if ($connection5->connect_errno) {
@@ -560,6 +547,7 @@ $connection2 = new mysqli($db_host, $db_user, $db_password, $db_name);
 
                 unset($connection5);
 
+                include('../plantilla/logout.php');
 
 ?>
 

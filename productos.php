@@ -32,9 +32,7 @@ $pdf->Ln(8);
 $pdf->SetFont('Arial', '', 8);
 //CONSULTA
 $usuarios = $connection->query("SELECT * FROM USUARIO");
-$item = 0;
-$totaluni = 0;
-$totaldis = 0;
+
 while($obj = $usuarios->fetch_object()){
 
 	$pdf->Cell(25, 8, $obj->COD_USU, 0);

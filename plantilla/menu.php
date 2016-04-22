@@ -26,12 +26,12 @@
 					</div>
 
 					<div class="contenedor_dos">
-                        <p class="texto_dos"><img src="../images/iconos_menu/tienda_black.PNG">TIENDA</p>
+            <p class="texto_dos"><img src="../images/iconos_menu/tienda_black.PNG">TIENDA</p>
 					</div>
 
                     </div></a>
 			</li>
-			
+
 
 
 
@@ -43,7 +43,7 @@
 					</div>
 
 					<div class="contenedor_dos">
-                        <p class="texto_dos"><img src="../images/iconos_menu/aboutus_black.PNG">SOBRE NOSOTROS</p>
+            <p class="texto_dos"><img src="../images/iconos_menu/aboutus_black.PNG">SOBRE NOSOTROS</p>
 					</div>
 
                 </div></a>
@@ -58,7 +58,7 @@
 					</div>
 
 					<div class="contenedor_dos">
-                        <p class="texto_dos"><img src="../images/iconos_menu/contac_black.png">CONTACTO</p>
+            <p class="texto_dos"><img src="../images/iconos_menu/contac_black.png">CONTACTO</p>
 					</div>
 
                 </div></a>

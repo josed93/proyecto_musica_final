@@ -22,7 +22,14 @@
 <title>Autores</title>
 <?php include("../plantilla/header.php");?>
 <script type="text/javascript" src="../javascript/gestion_autor.js"></script>
-<?php include("../plantilla/temas.php");?>
+<?php
+if(isset($_SESSION["user"])){
+  include("../plantilla/temas.php");
+}
+else{
+  echo '<link rel="stylesheet" href="../plantilla/plantilla.css">';
+}
+?>
 </head>
 
 

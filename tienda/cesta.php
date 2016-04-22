@@ -20,8 +20,14 @@
 <html lang="">
 <title>Cesta</title>
 <?php include("../plantilla/header.php");?>
-<?php include("../plantilla/temas.php");?>
-</head>
+<?php
+if(isset($_SESSION["user"])){
+  include("../plantilla/temas.php");
+}
+else{
+  echo '<link rel="stylesheet" href="../plantilla/plantilla.css">';
+}
+?></head>
 
 
 

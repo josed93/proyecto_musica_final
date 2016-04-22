@@ -9,12 +9,12 @@
 
         }
         else{
-        header("Location:../admin/ausuarios.php");
+        header("Location:../inicio/inicio.php");
         }
 
     }
     else{
-        header("Location:../admin/ausuarios.php");
+        header("Location:../inicio/inicio.php");
     }
 ?>
 <!DOCTYPE html>
@@ -22,8 +22,14 @@
 <title>Usuarios</title>
 <?php include("../plantilla/header.php");?>
 <script type="text/javascript" src="../javascript/gestio_usuario.js"></script>
-<?php include("../plantilla/temas.php");?>
-</head>
+<?php
+if(isset($_SESSION["user"])){
+  include("../plantilla/temas.php");
+}
+else{
+  echo '<link rel="stylesheet" href="../plantilla/plantilla.css">';
+}
+?></head>
 
 
 <body>

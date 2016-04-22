@@ -5,23 +5,19 @@
     session_start();
     ob_start();
     if(isset($_SESSION["user"])){
-        if($_SESSION["rol"] == "admin"){
 
-        }
-        else{
-        header("Location:../inicio/inicio.php");
-        }
 
     }
     else{
         header("Location:../inicio/inicio.php");
     }
+
 ?>
 
 
 <!DOCTYPE html>
 <html lang="">
-<title>Editar Discos</title>
+<title>Perfil Usuario</title>
 <?php include("../plantilla/header.php");?>
 <?php
 if(isset($_SESSION["user"])){
@@ -36,11 +32,11 @@ else{
 
     <div id="top">
         <div id="logo">
-            <a href="../admin/ausuarios.php"><img src="../images/prueba.png"></a>
+            <a href="../inicio/inicio.php"><img src="../images/prueba.png"></a>
 
         </div>
         <div id="logo2">
-            <a href="../admin/ausuarios.php"><img src="../images/logo2.PNG"></a>
+            <a href="../inicio/inicio.php"><img src="../images/logo2.PNG"></a>
 
         </div>
         <?php include("../plantilla/searchnbar.php");?>
@@ -140,6 +136,9 @@ else{
     <?php
 
     if(isset($_SESSION["user"])){
+
+
+
     ?>
 
     <div>
@@ -172,10 +171,41 @@ else{
         </li>
       </ul>
     </div>
+        <?php
+        if($_SESSION["rol"] == "user"){
+
+
+        ?>
+        <div id="carrito" class="rotateinfinite">
+                        <a href="../tienda/cesta.php"><img src="../images/carrito.PNG" style="float:left;width:40px;height:40px"/><p style="position:relative;float:left;top:20px;left:-23px;">
+                          <?php
+                          //CREATING THE CONNECTION
+                           $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
+                            //TESTING IF THE CONNECTION WAS RIGHT
+                            if ($connection->connect_errno) {
+                                printf("Conexión fallida %s\n", $mysqli->connect_error);
+                                exit();
+                            }
+                          $user=$_SESSION["user"];
+                          $consulta = "SELECT SUM(CESTA.CANTIDAD) AS total FROM USUARIO, CESTA WHERE USUARIO.COD_USU = CESTA.COD_USU AND USUARIO.USERNAME = '".$user."';";
+                          if($result = $connection->query($consulta)){
+                                $total=0;
+                                if($result->num_rows==0){
+                                }else{
+                                    while($fila=$result->fetch_object()){
+                                        $total=$total+$fila->total;
+                                    }
+                                }
+                                echo " ($total)";
+                          }
+                          ?>
+                        </p></a>
+                </div>
 
 
 
     <?php
+      }
     }
     else{
     ?>
@@ -249,12 +279,9 @@ else{
     <div id="center" class="container">
 
 
-    <?php if(!isset($_POST["titulo"])): ?>
+    <?php if(!isset($_POST["nombre"])): ?>
      <?php
-
-    $codisco=$_GET['codisco'];
-
-     $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
+$connection = new mysqli($db_host, $db_user, $db_password, $db_name);
 
        if ($connection->connect_errno) {
           printf("Conexión fallida %s\n", $mysqli->connect_error);
@@ -262,30 +289,37 @@ else{
       }
 
 
-   $result = $connection->query("SELECT D.*,DF.NOMBRE,A.NOMBRE_A FROM DISCO D,DISCOGRAFICA DF, AUTOR A WHERE D.COD_DISCOGRA=DF.COD_DISCOGRA AND D.COD_AUTOR=A.COD_AUTOR AND D.COD_DISCO= '".$codisco."' GROUP BY D.COD_DISCO");
+   $result = $connection->query("SELECT * FROM USUARIO WHERE USERNAME= '".$_SESSION['user']."'");
 
 
      while($obj=$result->fetch_Object()){
 
-            $titulo=$obj->TITULO;
-            $autor=$obj->NOMBRE_A;
-            $genero=$obj->GENERO;
-            $fecha=$obj->FECHA;
-            $caratula=$obj->CARATULA;
-            $precio=$obj->PRECIO;
-            $cantidad=$obj->CANTIDAD;
-            $cod_discogra=$obj->COD_DISCOGRA;
-            $nom_discogra=$obj->NOMBRE;
-            $cod_autor=$obj->COD_AUTOR;
+            $pass=$obj->PASSWORD;
+            $dni=$obj->DNI;
+            $nombre=$obj->NOMBRE;
+            $apellidos=$obj->APELLIDOS;
+            $fecha_nac=$obj->FECHA_NAC;
+            $direccion=$obj->DIRECCION;
+            $tlf=$obj->TLF;
+            $email=$obj->EMAIL;
+            $provincia=$obj->PROVINCIA;
+            $localidad=$obj->LOCALIDAD;
+            $pais=$obj->PAIS;
+            $style=$obj->STYLE;
+
 
      }
 
 
-     echo '<div class="container">
-    <div class="well well-sm" style="text-align:center">
-     <h5 style="font-weight:bold">EDITAR DISCOS</h5>
-
-     </div>
+     echo '<div>
+    <ul class="nav nav-pills well well-sm">
+      <li class="active"><a href="#home" data-toggle="pill">Datos Personales</a></li>
+      <li><a href="#profile" data-toggle="tab">Datos de la Cuenta</a></li>
+      <li><a href="#profile2" data-toggle="tab">Temas</a></li>';
+      if($_SESSION['rol']=='user'){
+      echo '<a href="./baja.php" style="float:right;"><button type="button" class="btn btn-danger">Dar de baja</button></a>';
+      }
+    echo '</ul>
     <div id="myTabContent" class="tab-content">
 
       <div class="tab-pane active in" id="home">
@@ -293,92 +327,74 @@ else{
            <div id="izquierda" style="margin-left:20%;width:25%;height:auto;float:left;">
 
               <div class="form-group">
-                <label>Título</label>
+                <label>DNI</label>
 
-                  <input type="text" class="form-control" name="titulo" value="'.$titulo.'">
-
-              </div>
-              <div class="form-group">
-                <label>Autor:</label>
-  <select name="nombreautor" class="form-control" id="sel1">';
- $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
-
-       if ($connection->connect_errno) {
-          printf("Conexión fallida %s\n", $mysqli->connect_error);
-          exit();
-      }
-    $result = $connection->query("SELECT DISTINCT * FROM AUTOR A");
-
-
-    while($obj2 = $result->fetch_Object()){
-        if($cod_autor===$obj2->COD_AUTOR){
-            echo "<option selected value='$obj2->COD_AUTOR'>$obj2->NOMBRE_A</option>";}
-        else{
-        echo "<option value='$obj2->COD_AUTOR'>$obj2->NOMBRE_A</option>";
-        }
-    }
-        echo '</select>
-
-
+                  <input type="text" class="form-control" name="dni" value="'.$dni.'">
 
               </div>
             <div class="form-group">
-                <label>Género</label>
+                <label>Nombre</label>
 
-                  <input type="text" class="form-control" name="genero" value="'.$genero.'">
+                  <input type="text" class="form-control" name="nombre" value="'.$nombre.'">
+
+             </div>
+             <div class="form-group">
+                <label>Apellidos</label>
+
+                  <input type="text" class="form-control" name="apellidos" value="'.$apellidos.'">
 
              </div>
 
              <div class="form-group">
-                <label>Fecha</label>
+                <label>Email</label>
 
-                  <input type="date" class="form-control" name="fecha" value="'.$fecha.'">
+                  <input type="email" class="form-control" name="email" value="'.$email.'">
 
              </div>
+             <div class="form-group">
+                <label>Teléfono</label>
+
+                  <input type="number" class="form-control" name="tlf" value="'.$tlf.'">
+
+             </div>
+
+
 
         </div>
         <div id="derecha" style="margin-left:5%;width:25%;height:auto;float:left">
 
               <div class="form-group">
-                <label>Carátula</label>
+                <label>Fecha de Nacimiento</label>
 
-                  <input type="file" class="form-control" name="caratula" value="'.$caratula.'">
+                  <input type="date" class="form-control" name="fecha_nac" value="'.$fecha_nac.'">
 
               </div>
             <div class="form-group">
-                <label>Precio</label>
+                <label>Dirección</label>
 
-                  <input type="number" class="form-control" name="precio" value="'.$precio.'" step="any">
+                  <input type="text" class="form-control" name="direccion" value="'.$direccion.'">
 
              </div>
              <div class="form-group">
-                 <label>Precio</label>
+                <label>Localidad</label>
 
-                   <input type="number" class="form-control" name="cantidad" value="'.$cantidad.'" step="any">
-
-              </div>
-             <div class="form-group">
-                <label>Discográfica:</label>
-  <select name="nombrediscografica" class="form-control" id="sel1">';
- $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
-
-       if ($connection->connect_errno) {
-          printf("Conexión fallida %s\n", $mysqli->connect_error);
-          exit();
-      }
-    $result = $connection->query("SELECT DISTINCT * FROM DISCOGRAFICA DG");
-
-
-    while($obj3 = $result->fetch_Object()){
-        if($cod_discogra===$obj3->COD_DISCOGRA){
-            echo "<option selected value='$obj3->COD_DISCOGRA'>$obj3->NOMBRE</option>";}
-        else{
-        echo "<option value='$obj3->COD_DISCOGRA'>$obj3->NOMBRE</option>";
-        }
-    }
-  echo '</select>
+                  <input type="text" class="form-control" name="localidad" value="'.$localidad.'">
 
              </div>
+             <div class="form-group">
+                <label>Provincia</label>
+
+                  <input type="text" class="form-control" name="provincia" value="'.$provincia.'">
+
+             </div>
+             <div class="form-group">
+                <label>País</label>
+
+                  <input type="text" class="form-control" name="pais" value="'.$pais.'">
+
+             </div>
+
+
 
 
         </div>
@@ -387,6 +403,78 @@ else{
         </div>
 
       </div>
+
+      <div class="tab-pane fade" id="profile">
+
+
+             <div id="perf1" style="margin-left:20%;width:25%;height:auto;float:left">
+
+              <div class="form-group">
+                <label>Contraseña</label>
+
+                  <input type="password" class="form-control" name="old_pass" placeholder="Introduzca su contraseña actual">
+
+              </div>
+              <p><em>Para poder cambiar su contraseña debe introducir la actual y posteriormente la nueva.</em></p>
+
+              </div>
+                <div id="perf2" style="margin-left:5%;width:25%;height:auto;float:left">
+                <div class="form-group">
+                    <label>Nueva Contraseña</label>
+
+                      <input type="password" class="form-control" name="new_pass" placeholder="Introduzca su nueva contraseña">
+
+                </div>
+                   <div class="form-group">
+                    <label>Confirmar contraseña nueva</label>
+
+                      <input type="password" class="form-control" name="check_pass" placeholder="Confirme su nueva contraseña">
+
+                  </div>
+
+                    <div id="modif2" style="clear:left;float:right;margin-top:8%;">
+                    <input type="submit" class="btn btn-primary" value="Modificar">
+                    </div>
+
+                </div>
+
+
+
+      </div>
+
+        <div class="tab-pane fade container" id="profile2">';
+
+          echo '<div class="radio">
+            <label>
+              <input type="radio" name="opciones" id="opciones_0" value="0" >
+              Tema por defecto
+            </label>
+
+          </div>
+          <div class="radio">
+          <label>
+            <input type="radio" name="opciones" id="opciones_1" value="1" >
+            Tema verde
+          </label>
+          </div>
+          <div class="radio">
+          <label>
+            <input type="radio" name="opciones" id="opciones_2" value="2" >
+            Tema naranja
+          </label>
+          </div>
+          <div class="radio">
+          <label>
+            <input type="radio" name="opciones" id="opciones_3" value="3">
+            Tema rojo
+          </label>
+          </div>
+
+                    <div id="modif2" style="clear:left;float:right;margin-top:8%;">
+                    <input type="submit" class="btn btn-primary" value="Modificar">
+                    </div>
+
+                </div>
 
 
         </form>
@@ -398,36 +486,74 @@ else{
     <?php else: ?>
        <?php
 
-            $codisco=$_GET['codisco'];
-            $titulo2=$_POST['titulo'];
-            $genero2=$_POST['genero'];
-            $fecha2=$_POST['fecha'];
-            $caratula2=$_POST['caratula'];
-            $precio2=$_POST['precio'];
-            $cantidad2=$_POST['cantidad'];
-            $nombreautor=$_POST['nombreautor'];
-            $nombrediscografica=$_POST['nombrediscografica'];
 
+            $o_pass=$_POST['old_pass'];
+            $c_pass=$_POST['check_pass'];
+            $n_pass=$_POST['new_pass'];
+            $dni2=$_POST['dni'];
+            $nombre2=$_POST['nombre'];
+            $apellidos2=$_POST['apellidos'];
+            $fecha_nac2=$_POST['fecha_nac'];
+            $direccion2=$_POST['direccion'];
+            $tlf2=$_POST['tlf'];
+            $email2=$_POST['email'];
+            $provincia2=$_POST['provincia'];
+            $localidad2=$_POST['localidad'];
+            $pais2=$_POST['pais'];
+            $style2=$_POST['opciones'];
 
+        //ACTUALIZA LOS DATOS PERSONALES DEL USUARIO
 
-        //ACTUALIZA LOS DATOS DE LOS DISCOS
- $connection2 = new mysqli($db_host, $db_user, $db_password, $db_name);
+$connection2 = new mysqli($db_host, $db_user, $db_password, $db_name);
 
        if ($connection2->connect_errno) {
           printf("Conexión fallida %s\n", $mysqli->connect_error);
           exit();
       }
-        $result2 = $connection2->query("UPDATE DISCO D,DISCOGRAFICA DF, AUTOR A SET D.TITULO='".$titulo2."',D.GENERO='".$genero2."',D.FECHA='".$fecha2."',D.CARATULA='".$caratula2."',D.PRECIO='".$precio2."',D.CANTIDAD='".$cantidad2."',D.COD_DISCOGRA='".$nombrediscografica."',D.COD_AUTOR='".$nombreautor."' WHERE D.COD_DISCOGRA=DF.COD_DISCOGRA AND D.COD_AUTOR=A.COD_AUTOR AND D.COD_DISCO= '".$codisco."'");
+        $result2 = $connection2->query("UPDATE USUARIO SET DNI='".$dni2."',NOMBRE='".$nombre2."',APELLIDOS='".$apellidos2."',FECHA_NAC='".$fecha_nac2."',DIRECCION='".$direccion2."',TLF='".$tlf2."',EMAIL='".$email2."',PROVINCIA='".$provincia2."',LOCALIDAD='".$localidad2."',PAIS='".$pais2."' WHERE USERNAME= '".$_SESSION['user']."'");
 
             unset($connection2);
 
 
 
+ //ACTUALIZA LOS DATOS DE LA CUENTA DEL USUARIO
+    if($n_pass==$c_pass){
+      $connection3 = new mysqli($db_host, $db_user, $db_password, $db_name);
 
+       if ($connection3->connect_errno) {
+          printf("Conexión fallida %s\n", $mysqli->connect_error);
+          exit();
+      }
+        $result3 = $connection3->query("UPDATE USUARIO SET PASSWORD=md5('".$n_pass."') WHERE PASSWORD=md5('".$o_pass."') and USERNAME= '".$_SESSION['user']."'");
+
+            unset($connection3);
         echo '  <script type="text/javascript">
                   document.location.href = document.location.href;
             </script>';
 
+
+
+
+
+
+    }else{
+        echo "Contraseña no coincide";
+
+    }
+    //AÑADE UN TEMA AL USUARIO
+
+
+    $connection5 = new mysqli($db_host, $db_user, $db_password, $db_name);
+
+           if ($connection5->connect_errno) {
+              printf("Conexión fallida %s\n", $mysqli->connect_error);
+              exit();
+          }
+            $result5 = $connection5->query("UPDATE USUARIO SET STYLE='".$style2."' WHERE USERNAME= '".$_SESSION['user']."'");
+
+                unset($connection5);
+
+                //include('../plantilla/logout.php');
 
 
 ?>

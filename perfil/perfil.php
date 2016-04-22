@@ -19,8 +19,14 @@
 <html lang="">
 <title>Perfil Usuario</title>
 <?php include("../plantilla/header.php");?>
-<?php include("../plantilla/temas.php");?>
-</head>
+<?php
+if(isset($_SESSION["user"])){
+  include("../plantilla/temas.php");
+}
+else{
+  echo '<link rel="stylesheet" href="../plantilla/plantilla.css">';
+}
+?></head>
 
 <body>
 
@@ -306,18 +312,20 @@ $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
 
 
      echo '<div>
-    <ul class="nav nav-tabs well well-sm">
-      <li class="active"><a href="#home" data-toggle="tab">Datos Personales</a></li>
-      <li><a href="#profile" data-toggle="tab">Datos de la Cuenta</a></li>
-      <li><a href="#profile2" data-toggle="tab">Temas</a></li>';
+    <ul class="nav nav-pills well well-sm">
+      <li class="active"><a href="#home" data-toggle="pill">Datos Personales</a></li>
+      <li><a href="#profile" data-toggle="tab">Datos de la Cuenta</a></li>';
+      if($_SESSION['rol']=='user'){
+      echo '<li><a href="#profile2" data-toggle="tab">Temas</a></li>';
+      }
       if($_SESSION['rol']=='user'){
       echo '<a href="./baja.php" style="float:right;"><button type="button" class="btn btn-danger">Dar de baja</button></a>';
       }
     echo '</ul>
-    <div id="myTabContent" class="tab-content">
 
+    <div id="myTabContent" class="tab-content">
       <div class="tab-pane active in" id="home">
-          <form id="tab" role="form" method="post">
+        <form id="tab" role="form" method="post" class="form-horizontal">
            <div id="izquierda" style="margin-left:20%;width:25%;height:auto;float:left;">
 
               <div class="form-group">
@@ -393,13 +401,13 @@ $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
 
         </div>
         <div id="modif" style="clear:left;float:right;margin-right:25%;">
-           <input type="submit" class="btn btn-primary" value="Modificar">
+           <input id="submit1" type="submit" class="btn btn-primary" value="Modificar">
         </div>
-
+      </form>
       </div>
 
       <div class="tab-pane fade" id="profile">
-
+        <form id="tab2" role="form" method="post" class="form-horizontal">
 
              <div id="perf1" style="margin-left:20%;width:25%;height:auto;float:left">
 
@@ -427,18 +435,18 @@ $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
                   </div>
 
                     <div id="modif2" style="clear:left;float:right;margin-top:8%;">
-                    <input type="submit" class="btn btn-primary" value="Modificar">
+                    <input id="submit2" type="submit" class="btn btn-primary" value="Modificar">
                     </div>
 
                 </div>
 
 
-
+              </form>
       </div>
 
         <div class="tab-pane fade container" id="profile2">';
-
-          echo '<div class="radio">
+          echo '<form id="tab3" role="form" method="post" class="form-horizontal">
+          <div class="radio">
             <label>
               <input type="radio" name="opciones" id="opciones_0" value="0" >
               Tema por defecto
@@ -465,17 +473,19 @@ $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
           </div>
 
                     <div id="modif2" style="clear:left;float:right;margin-top:8%;">
-                    <input type="submit" class="btn btn-primary" value="Modificar">
+                    <input id="submit3" type="submit" class="btn btn-primary" value="Modificar">
                     </div>
-
+                    </form>
                 </div>
 
 
-        </form>
+
       </div>
-    </div>
+
     </div>';
     ?>
+
+
 
     <?php else: ?>
        <?php
@@ -549,6 +559,7 @@ $connection2 = new mysqli($db_host, $db_user, $db_password, $db_name);
 
                 include('../plantilla/logout.php');
 
+
 ?>
 
 
@@ -557,6 +568,30 @@ $connection2 = new mysqli($db_host, $db_user, $db_password, $db_name);
 
 
     </div>
+    <script type="text/javascript">
+          //  $('form').each(function(){
+            //   $(this).submit()
+          //  });
+
+            $(function() {
+              $('#submit1').click(function() {
+                $(this).submit()
+              });
+
+            });
+            $(function() {
+            $('#submit2').click(function() {
+              $(this).submit()
+            });
+
+          });
+          $(function() {
+          $('#submit3').click(function() {
+            $(this).submit()
+          });
+
+        });
+    </script>
     <?php include("../plantilla/footer.php");?>
     <div class="ir-arriba"><img src="../images/icon_up.PNG"></div>
 

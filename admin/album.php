@@ -21,8 +21,14 @@
 <html lang="">
 <title>Álbum</title>
 <?php include("../plantilla/header.php");?>
-<?php include("../plantilla/temas.php");?>
-
+<?php
+if(isset($_SESSION["user"])){
+  include("../plantilla/temas.php");
+}
+else{
+  echo '<link rel="stylesheet" href="../plantilla/plantilla.css">';
+}
+?>
 <script type="text/javascript" src="../javascript/gestion_disco.js"></script>
 <script type="text/javascript" src="../javascript/gestion_cancion.js"></script>
 </head>

@@ -363,7 +363,7 @@ body{
 	border-bottom:4px solid black;
 }
 
-#top_menu p.texto_uno, p.texto_dos{
+#top_menu p.texto_uno, #top_menu p.texto_dos{
     margin-left: 60px;
     float: left;
 	text-align: center;

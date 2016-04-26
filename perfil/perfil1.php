@@ -277,272 +277,313 @@ else{
         <?php include("../plantilla/alerts.php");?>
 
     <div id="center" class="container">
-      <?php
 
-      //CREATING THE CONNECTION
-     $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
 
-      //TESTING IF THE CONNECTION WAS RIGHT
-      if ($connection->connect_errno) {
-          printf("Connection failed: %s\n", $connection->connect_error);
+    <?php if(!isset($_POST["nombre"])): ?>
+     <?php
+$connection = new mysqli($db_host, $db_user, $db_password, $db_name);
+
+       if ($connection->connect_errno) {
+          printf("Conexión fallida %s\n", $mysqli->connect_error);
           exit();
       }
 
-      //MAKING A SELECT QUERY
-      /* Consultas de selección que devuelven un conjunto de resultados */
-      $connection->set_charset("utf8");
 
-      echo '<div>
-     <ul class="nav nav-pills well well-sm">
-       <li class="active"><a href="#home" data-toggle="pill">Datos Personales</a></li>
-       <li><a href="#menu1" data-toggle="tab">Datos de la Cuenta</a></li>';
-       if($_SESSION['rol']=='user'){
-       echo '<li><a href="#menu2" data-toggle="tab">Temas</a></li>';
-       }
-       if($_SESSION['rol']=='user'){
-       echo '<a href="./baja.php" style="float:right;"><button type="button" class="btn btn-danger">Dar de baja</button></a>';
-       }
-     echo '</ul>
-
-<div class="tab-content">
-  <div id="home" class="tab-pane fade in active">
-
-    <div class="container well ">';
-      ?>
-      <?php
-    $consulta=("SELECT * FROM USUARIO where USERNAME='".$_SESSION['user']."' ");
-
-    if ($result = $connection->query($consulta)) {
+   $result = $connection->query("SELECT * FROM USUARIO WHERE USERNAME= '".$_SESSION['user']."'");
 
 
-$obj = $result->fetch_object();
+     while($obj=$result->fetch_Object()){
 
-    ?>
-  <form  action="datospersonales.php" class="form-horizontal " method="POST">
-    <div id="izquierda" style="margin-left:20%;width:25%;height:auto;float:left;">
+            $pass=$obj->PASSWORD;
+            $cod=$obj->COD_USU;
+            $dni=$obj->DNI;
+            $nombre=$obj->NOMBRE;
+            $apellidos=$obj->APELLIDOS;
+            $fecha_nac=$obj->FECHA_NAC;
+            $direccion=$obj->DIRECCION;
+            $tlf=$obj->TLF;
+            $email=$obj->EMAIL;
+            $provincia=$obj->PROVINCIA;
+            $localidad=$obj->LOCALIDAD;
+            $pais=$obj->PAIS;
+            $style=$obj->STYLE;
 
-      <div class="form-group">
-            <label>Nombre del Usuario</label>
 
-                <input class="form-control" name="id" type="hidden"  value=<?php echo $obj->COD_USU;?> >
-              <input class="form-control" type="text" name="nombre" value=<?php echo $obj->USERNAME;?> disabled>
+     }
 
-          </div>
-          <div class="form-group">
-            <label>DNI</label>
 
-              <input type="text" class="form-control" name="dni" value=<?php echo $obj->DNI;?>>
+     echo '<div>
+    <ul class="nav nav-pills well well-sm">
+      <li class="active"><a href="#home" data-toggle="pill">Datos Personales</a></li>
+      <li><a href="#profile" data-toggle="tab">Datos de la Cuenta</a></li>';
+      if($_SESSION['rol']=='user'){
+      echo '<li><a href="#profile2" data-toggle="tab">Temas</a></li>';
+      }
+      if($_SESSION['rol']=='user'){
+      echo '<a href="./baja.php" style="float:right;"><button type="button" class="btn btn-danger">Dar de baja</button></a>';
+      }
+    echo '</ul>
 
-          </div>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane active in" id="home">
+        <form id="tab" action="datospersonales.php" role="form" method="post" class="form-horizontal">
+           <div id="izquierda" style="margin-left:20%;width:25%;height:auto;float:left;">
 
-        <div class="form-group">
-            <label>Nombre</label>
-              <input  class="form-control" type="text" name="nombre" value=<?php echo $obj->NOMBRE;?>>
+              <div class="form-group">
+                <label>DNI</label>
+                  <input class="form-control" name="id" type="hidden"  value="'.$cod.'" >
+                  <input type="text" class="form-control" name="dni" value="'.$dni.'">
 
-          </div>
+              </div>
+            <div class="form-group">
+                <label>Nombre</label>
 
-          <div class="form-group">
-            <label>Apellidos</label>
-              <input class="form-control" type="text"  name="apellido" value="<?php echo $obj->APELLIDOS?>">
-          </div>
-          <div class="form-group">
-             <label>Email</label>
+                  <input type="text" class="form-control" name="nombre" value="'.$nombre.'">
 
-               <input type="email" class="form-control" name="email" value="<?php echo $obj->EMAIL?>">
+             </div>
+             <div class="form-group">
+                <label>Apellidos</label>
 
-          </div>
-          <div class="form-group">
-            <label>Teléfono</label>
+                  <input type="text" class="form-control" name="apellidos" value="'.$apellidos.'">
 
-            <div class="input-group">
-              <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
-              <input class="form-control" type="number"  name="telefono" value=<?php echo $obj->TLF;?>>
+             </div>
 
-            </div>
-          </div>
+             <div class="form-group">
+                <label>Email</label>
+
+                  <input type="email" class="form-control" name="email" value="'.$email.'">
+
+             </div>
+             <div class="form-group">
+                <label>Teléfono</label>
+
+                  <input type="number" class="form-control" name="tlf" value="'.$tlf.'">
+
+             </div>
+
+
+
         </div>
         <div id="derecha" style="margin-left:5%;width:25%;height:auto;float:left">
 
-          <div class="form-group">
-            <label>Fecha de Nacimiento</label>
+              <div class="form-group">
+                <label>Fecha de Nacimiento</label>
 
-              <input type="date" class="form-control" name="fecha_nac" value="<?php echo $obj->FECHA_NAC?>">
+                  <input type="date" class="form-control" name="fecha_nac" value="'.$fecha_nac.'">
 
-          </div>
-          <div class="form-group">
-              <label>Dirección</label>
+              </div>
+            <div class="form-group">
+                <label>Dirección</label>
 
-                <input type="text" class="form-control" name="direccion" value="<?php echo $obj->DIRECCION?>">
+                  <input type="text" class="form-control" name="direccion" value="'.$direccion.'">
 
-           </div>
+             </div>
+             <div class="form-group">
+                <label>Localidad</label>
+
+                  <input type="text" class="form-control" name="localidad" value="'.$localidad.'">
+
+             </div>
+             <div class="form-group">
+                <label>Provincia</label>
+
+                  <input type="text" class="form-control" name="provincia" value="'.$provincia.'">
+
+             </div>
+             <div class="form-group">
+                <label>País</label>
+
+                  <input type="text" class="form-control" name="pais" value="'.$pais.'">
+
+             </div>
 
 
-          <div class="form-group">
-             <label>Localidad</label>
 
-               <input type="text" class="form-control" name="localidad" value="<?php echo $obj->LOCALIDAD?>">
 
-          </div>
-          <div class="form-group">
-             <label>Provincia</label>
+        </div>
+        <div id="modif" style="clear:left;float:right;margin-right:25%;">
+           <input id="submit1" type="submit" class="btn btn-primary" value="Modificar">
+        </div>
+      </form>
+      </div>
 
-               <input type="text" class="form-control" name="provincia" value="<?php echo $obj->PROVINCIA?>">
+      <div class="tab-pane fade" id="profile">
+        <form id="tab2" role="form" method="post" class="form-horizontal">
 
-          </div>
-          <div class="form-group">
-             <label>País</label>
+             <div id="perf1" style="margin-left:20%;width:25%;height:auto;float:left">
 
-               <input type="text" class="form-control" name="pais" value="<?php echo $obj->PAIS?>">
+              <div class="form-group">
+                <label>Contraseña</label>
 
-          </div>
+                  <input type="password" class="form-control" name="old_pass" placeholder="Introduzca su contraseña actual">
 
+              </div>
+              <p><em>Para poder cambiar su contraseña debe introducir la actual y posteriormente la nueva.</em></p>
+
+              </div>
+                <div id="perf2" style="margin-left:5%;width:25%;height:auto;float:left">
                 <div class="form-group">
-                  <label class="col-sm-2 control-label" for="formGroup"></label>
-                  <div class="col-sm-4">
+                    <label>Nueva Contraseña</label>
 
-                <button type="submit" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> Guardar</button>
+                      <input type="password" class="form-control" name="new_pass" placeholder="Introduzca su nueva contraseña">
 
+                </div>
+                   <div class="form-group">
+                    <label>Confirmar contraseña nueva</label>
 
+                      <input type="password" class="form-control" name="check_pass" placeholder="Confirme su nueva contraseña">
 
                   </div>
+
+                    <div id="modif2" style="clear:left;float:right;margin-top:8%;">
+                    <input id="submit2" type="submit" class="btn btn-primary" value="Modificar">
+                    </div>
+
                 </div>
 
-          </div>
 
+              </form>
+      </div>
 
-
-  </form>
-  <?php
-}?>
-
-  </div>
-</div>
-<div class="tab-pane fade" id="menu1">
-  <div class="container well">
-
-    <?php
-  $consulta2=("SELECT * FROM USUARIO where USERNAME='".$_SESSION['user']."' ");
-
-  if ($result2 = $connection->query($consulta2)) {
-
-
-$obj2 = $result2->fetch_object();
-
-  ?>
-  <form  action="datosdelacuenta.php" class="form-horizontal " method="POST">
-       <div id="perf1" style="margin-left:20%;width:25%;height:auto;float:left">
-
-        <div class="form-group">
-          <label>Contraseña</label>
-            <input class="form-control" name="id2" type="hidden"  value=<?php echo $obj2->COD_USU;?> >
-            <input type="password" class="form-control" name="old_pass" placeholder="Introduzca su contraseña actual">
-
-        </div>
-        <p><em>Para poder cambiar su contraseña debe introducir la actual y posteriormente la nueva.</em></p>
-
-        </div>
-          <div id="perf2" style="margin-left:5%;width:25%;height:auto;float:left">
-          <div class="form-group">
-              <label>Nueva Contraseña</label>
-
-                <input type="password" class="form-control" name="new_pass" placeholder="Introduzca su nueva contraseña">
+        <div class="tab-pane fade container" id="profile2">';
+          echo '<form id="tab3" role="form" method="post" class="form-horizontal">
+          <div class="radio">
+            <label>
+              <input type="radio" name="opciones" id="opciones_0" value="0" >
+              Tema por defecto
+            </label>
 
           </div>
-             <div class="form-group">
-              <label>Confirmar contraseña nueva</label>
-
-                <input type="password" class="form-control" name="check_pass" placeholder="Confirme su nueva contraseña">
-
-            </div>
-
-              <div id="modif2" style="clear:left;float:right;margin-top:8%;">
-              <input id="submit2" type="submit" class="btn btn-primary" value="Modificar">
-              </div>
-
+          <div class="radio">
+          <label>
+            <input type="radio" name="opciones" id="opciones_1" value="1" >
+            Tema verde
+          </label>
+          </div>
+          <div class="radio">
+          <label>
+            <input type="radio" name="opciones" id="opciones_2" value="2" >
+            Tema naranja
+          </label>
+          </div>
+          <div class="radio">
+          <label>
+            <input type="radio" name="opciones" id="opciones_3" value="3">
+            Tema rojo
+          </label>
           </div>
 
-
-        </form>
-        <?php
-      }?>
-</div>
-</div>
-
-<div id="menu2" class="tab-pane fade">
-  <div class="container well " >
+                    <div id="modif2" style="clear:left;float:right;margin-top:8%;">
+                    <input id="submit3" type="submit" class="btn btn-primary" value="Modificar">
+                    </div>
+                    </form>
+                </div>
 
 
-      <?php
-      //CREATING THE CONNECTION
-     $connection3 = new mysqli($db_host, $db_user, $db_password, $db_name);
 
-      //TESTING IF THE CONNECTION WAS RIGHT
-      if ($connection->connect_errno) {
-          printf("Connection failed: %s\n", $connection->connect_error);
+      </div>
+
+    </div>';
+    ?>
+
+
+
+    <?php else: ?>
+       <?php
+
+
+            $o_pass=$_POST['old_pass'];
+            $c_pass=$_POST['check_pass'];
+            $n_pass=$_POST['new_pass'];
+
+            $style2=$_POST['opciones'];
+
+
+
+
+ //ACTUALIZA LOS DATOS DE LA CUENTA DEL USUARIO
+    if($n_pass==$c_pass){
+      $connection3 = new mysqli($db_host, $db_user, $db_password, $db_name);
+
+       if ($connection3->connect_errno) {
+          printf("Conexión fallida %s\n", $mysqli->connect_error);
           exit();
       }
+        $result3 = $connection3->query("UPDATE USUARIO SET PASSWORD=md5('".$n_pass."') WHERE PASSWORD=md5('".$o_pass."') and USERNAME= '".$_SESSION['user']."'");
 
-      //MAKING A SELECT QUERY
-      /* Consultas de selección que devuelven un conjunto de resultados */
-      $connection3->set_charset("utf8");
-
-      $consulta3=("SELECT * FROM USUARIO where USERNAME='".$_SESSION['user']."' ");
-
-      if ($result3 = $connection3->query($consulta3)) {
+            unset($connection3);
+        echo '  <script type="text/javascript">
+                  document.location.href = document.location.href;
+            </script>';
 
 
-  $obj3 = $result3->fetch_object();
 
 
-    ?>
-        <form  action="temas.php" class="form-horizontal " method="POST">
-          <form>
-            <input class="form-control" name="id" type="hidden"  value=<?php echo $obj3->COD_USU;?> >
 
 
-            <div class="radio">
-              <label>
-                <input type="radio" name="opciones" id="opciones_0" value="0" >
-                Tema por defecto
-              </label>
+    }else{
+        echo "Contraseña no coincide";
 
-            </div>
-            <div class="radio">
-            <label>
-              <input type="radio" name="opciones" id="opciones_1" value="1" >
-              Tema verde
-            </label>
-            </div>
-            <div class="radio">
-            <label>
-              <input type="radio" name="opciones" id="opciones_2" value="2" >
-              Tema naranja
-            </label>
-            </div>
-            <div class="radio">
-            <label>
-              <input type="radio" name="opciones" id="opciones_3" value="3">
-              Tema rojo
-            </label>
-            </div>
+    }
+    //AÑADE UN TEMA AL USUARIO
 
-                      <div id="modif2" style="clear:left;float:right;margin-top:8%;">
-                      <input id="submit3" type="submit" class="btn btn-primary" value="Modificar">
-                      </div>
 
-  </form>
-  </form>
-  <?php
-}else{
+    $connection5 = new mysqli($db_host, $db_user, $db_password, $db_name);
 
-}?>
-</div>
-</div>
-</div>
-</div>
-</div>
-<?php include("../plantilla/footer.php");?>
-  <div class="ir-arriba"><img src="../images/icon_up.PNG"></div>
+           if ($connection5->connect_errno) {
+              printf("Conexión fallida %s\n", $mysqli->connect_error);
+              exit();
+          }
+            $result5 = $connection5->query("UPDATE USUARIO SET STYLE='".$style2."' WHERE USERNAME= '".$_SESSION['user']."'");
+
+                unset($connection5);
+
+                include('../plantilla/logout.php');
+
+
+?>
+
+
+        <?php endif ?>
+
+
+
+    </div>
+    <script type="text/javascript">
+          //  $('form').each(function(){
+            //   $(this).submit()
+          //  });
+
+            $(function() {
+              $('#submit1').click(function() {
+                $(this).submit()
+              });
+
+            });
+            $(function() {
+            $('#submit2').click(function() {
+              $(this).submit()
+            });
+
+          });
+          $(function() {
+          $('#submit3').click(function() {
+            $(this).submit()
+          });
+
+        });
+    </script>
+    <?php include("../plantilla/footer.php");?>
+    <div class="ir-arriba"><img src="../images/icon_up.PNG"></div>
+
+
+
+
+
+
 
 </body>
 </html>
+<?php
+ob_end_flush();
+?>

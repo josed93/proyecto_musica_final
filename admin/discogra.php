@@ -205,7 +205,7 @@ else{
 
     <div id="center" class="container">
       <div class="container well well-sm" style="margin-bottom:0%">
-      <a href="./anadir_discogra.php"><button type="button" class="btn btn-success col-sm-1">Añadir</button></a>
+      <a href="./anadir_discogra.php"><button type="button" class="btn btn-success col-sm-1"><span class="glyphicon glyphicon-plus"></span> Añadir</button></a>
 	<div class="row">
 	<h5 style="font-weight:bold;color:#00BFFF;float:left;" class="col-md-offset-4">DISCOGRÁFICAS AÑADIDAS</h5>
 		<div class="col-md-offset-10" style="margin-right:1%">
@@ -255,8 +255,8 @@ $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
               echo "<td>".$obj->FUNDACION."</td>";
               echo "<td><a href='".$obj->PAGINA_WEB."' target='_blank'>".$obj->PAGINA_WEB."</a></td>";
 
-              echo "<td><a href='./editar_discogra.php?codiscogra=$obj->COD_DISCOGRA'><button type='button' class='btn btn-warning'>Editar</button></a></td>";
-              echo "<td><a href='./borrar_discogra.php?codiscogra=$obj->COD_DISCOGRA'><button type='button' class='btn btn-danger'>Borrar</button></a></td>";
+              echo "<td><a href='./editar_discogra.php?codiscogra=$obj->COD_DISCOGRA'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-edit'> Editar</button></a></td>";
+              echo "<td><a href='./borrar_discogra.php?codiscogra=$obj->COD_DISCOGRA'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'> Borrar</button></a></td>";
 
 
 

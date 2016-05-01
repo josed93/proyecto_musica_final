@@ -9,7 +9,7 @@
           exit();
       }
 
-      $result = $connection->query("SELECT * FROM USUARIO WHERE USERNAME LIKE '%".$_GET['dato']."%'");
+      $result = $connection->query("SELECT * FROM USUARIO WHERE ROL = 'user' and USERNAME LIKE '%".$_GET['dato']."%'");
       echo '<table style="margin-top:2%;" class="table table-hover table-bordered table-responsive ">
        <tr style="text-align:center;font-weight:bold">
 
@@ -33,9 +33,9 @@
               echo "<td>".$obj->ESTADO."</td>";
               echo "<td>".$obj->NOMBRE."</td>";
               echo "<td>".$obj->EMAIL."</td>";
-              echo "<td><a href='?coduser=$obj->COD_USU'><button type='button' class='btn btn-info'>Ver detalles</button></a></td>";
-              echo "<td><a href='./editar_user.php'><button type='button' class='btn btn-warning'>Editar</button></a></td>";
-              echo "<td><a href='./borrar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-danger'>Borrar</button></a></td>";
+              echo "<td><a href='?coduser=$obj->COD_USU'><button type='button' class='btn btn-info'><span class='glyphicon glyphicon-search'></span> Ver detalles</button></a></td>";
+              echo "<td><a href='./editar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-edit'> Editar</button></a></td>";
+              echo "<td><a href='./borrar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'> Borrar</button></a></td>";
 
 
 

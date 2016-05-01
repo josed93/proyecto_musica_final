@@ -339,7 +339,7 @@ else{
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg" disabled >Enviar</button>
+                                <button type="submit" class="btn btn-success btn-lg" disabled >Enviar</button>
                             </div>
                         </div>
                     </fieldset>

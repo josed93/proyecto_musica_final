@@ -1,5 +1,15 @@
 <?php
   include_once("../plantilla/db_configuration.php");
+  include_once("../plantilla/variablesdeconexion.php");
+
+  $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
+     //TESTING IF THE CONNECTION WAS RIGHT
+  if ($connection->connect_errno) {
+       header("Location: ../install.php");
+       printf("Connection failed: %s\n", $connection->connect_error);
+       exit();
+  }else{
+
 ?>
 <?php
     session_start();
@@ -392,6 +402,8 @@ else{
 
 </body>
 </html>
+
 <?php
 ob_end_flush();
+}
 ?>

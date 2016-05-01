@@ -1,7 +1,7 @@
 <?php
-require('./fpdf/fpdf.php');
-require('./plantilla/db_configuration.php');
-include_once('./plantilla/variablesdeconexion.php');
+require('../fpdf/fpdf.php');
+require('../plantilla/db_configuration.php');
+include_once('../plantilla/variablesdeconexion.php');
 $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
  //TESTING IF THE CONNECTION WAS RIGHT
  if ($connection->connect_errno) {
@@ -12,7 +12,7 @@ $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
 $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial', '', 10);
-$pdf->Image('./images/logo2.PNG' , 10 ,8, 60 , 8,'PNG');
+$pdf->Image('../images/logo2.PNG' , 10 ,8, 60 , 8,'PNG');
 $pdf->Cell(18, 10, '', 0);
 $pdf->Cell(150, 10, '', 0);
 $pdf->SetFont('Arial', 'I', 9);

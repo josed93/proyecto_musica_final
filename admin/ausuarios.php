@@ -262,9 +262,9 @@ else{
               echo "<td>".$obj->ESTADO."</td>";
               echo "<td>".$obj->NOMBRE."</td>";
               echo "<td>".$obj->EMAIL."</td>";
-              echo "<td><a href='?coduser=$obj->COD_USU'><button type='button' class='btn btn-info'>Ver detalles</button></a></td>";
-              echo "<td><a href='./editar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-warning'>Editar</button></a></td>";
-              echo "<td><a href='./borrar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-danger'>Borrar</button></a></td>";
+              echo "<td><a href='?coduser=$obj->COD_USU'><button type='button' class='btn btn-info'><span class='glyphicon glyphicon-search'></span> Ver detalles</button></a></td>";
+              echo "<td><a href='./editar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-edit'> Editar</button></a></td>";
+              echo "<td><a href='./borrar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'> Borrar</button></a></td>";
 
 
 

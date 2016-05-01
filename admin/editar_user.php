@@ -291,8 +291,8 @@ else{
       <li><a href="#profile" data-toggle="tab">Datos de la Cuenta</a></li>
       <li style="font-weight:bold;line-height:40px;font-size:120%" class="col-md-offset-2">Usuario:&nbsp'.$username.'</li>';
         if($rol_user == 'user'){
-      echo '<a href="./baja_user.php?coduser='.$coduser.'" style="float:right"><button type="button" class="btn btn-danger">Dar de baja</button></a>
-      <a href="./alta_user.php?coduser='.$coduser.'" style="float:right;margin-right:1%;"><button type="button" class="btn btn-success">Dar de alta</button></a>';
+      echo '<a href="./baja_user.php?coduser='.$coduser.'" style="float:right"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Dar de baja</button></a>
+      <a href="./alta_user.php?coduser='.$coduser.'" style="float:right;margin-right:1%;"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Dar de alta</button></a>';
         }
     echo '</ul>
     <div id="myTabContent" class="tab-content">
@@ -374,7 +374,7 @@ else{
 
         </div>
         <div id="modif" style="clear:left;float:right;margin-right:25%;">
-           <input type="submit" class="btn btn-primary" value="Modificar">
+           <button type="submit" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> Modificar</button>
         </div>
 
       </div>
@@ -403,7 +403,7 @@ else{
                   </div>
 
                     <div id="modif2" style="clear:left;float:right;margin-top:8%;">
-           <input type="submit" class="btn btn-primary" value="Modificar">
+           <button type="submit" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> Modificar</button>
             </div>
 
                 </div>

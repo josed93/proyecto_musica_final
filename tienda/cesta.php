@@ -32,8 +32,12 @@ else{
 
 
 <body>
-
-
+  <script>
+  function oculta(id){
+    var elDiv = document.getElementById(id); //se define la variable "elDiv" igual a nuestro div
+      elDiv.style.display='none'; //damos un atributo display:none que oculta el div
+     }
+     </script>
 
 
     <div id="top" class="container">
@@ -269,7 +273,9 @@ else{
 
     <div id="center" class="container">
       <div id="tabla" class="container">
-        <a href='../tienda/cesta.php?hacerpedido=yes' ><button style="float:right;margin-bottom:10px;" type='button' class='btn btn-success'>Realizar pedido</button></a>
+
+        <a href='../tienda/cesta.php?hacerpedido=yes' id='hp' ><button style="float:right;margin-bottom:10px;" type='button' class='btn btn-success btn-lg'><span class="glyphicon glyphicon-ok"></span> Realizar pedido</button></a>
+
 
         <?php
             if(isset($_GET["hacerpedido"])){
@@ -293,8 +299,10 @@ else{
 
               if($result2=$connection->query($consultaRecogerCestaUsuario)){
                 if($result2->num_rows==0){
-                  echo "No hay productos en la cesta para realizar el pedido";
+
+                  //echo "No hay productos en la cesta para realizar el pedido";
                 }else{
+
                   $consultaPedido="INSERT INTO PEDIDO (`COD_USU`, `FECHA_PED`, `IMPORTE`) VALUES ($idusuario,CURRENT_TIMESTAMP(),0)";
                   $result= $connection->query($consultaPedido);
 
@@ -332,15 +340,7 @@ else{
 
             }
         ?>
-      <table   style="margin-top:20px;text-align:center"  class="table">
-          <tr class="active">
-            <th style="text-align:center;">Imagen</th>
-            <th style="text-align:center;">Producto</th>
-            <th style="text-align:center;">Precio</th>
-            <th style="text-align:center;">Cantidad</th>
-            <th style="text-align:center;">Operaciones</th>
 
-          </tr>
 
       <?php
       //CREATING THE CONNECTION
@@ -357,16 +357,35 @@ else{
 
       if ($result = $connection->query($consulta)) {
             if ($result->num_rows==0) {
-              //echo "EL USUARIO NO EXISTE";
+              echo '<hr style="border:solid 1px brown">';
+              echo '<span style="margin:5% 0 0 30%;font-size:200%;font-weight:bold;font-family:Courier New;color:brown">NO HAY DISCOS EN LA CESTA</span>';
+                echo '<hr style="border:solid 1px brown;margin-bottom:10%">';
+                echo '<script type="text/javascript">
+                $(document).ready(function(){
+                  oculta("hp");
+
+                });
+
+                  </script>';
+
             } else {
+              echo '<table   style="margin-top:20px;text-align:center"  class="table">
+                  <tr class="active">
+                    <th style="text-align:center;">Imagen</th>
+                    <th style="text-align:center;">Producto</th>
+                    <th style="text-align:center;">Precio</th>
+                    <th style="text-align:center;">Cantidad</th>
+                    <th style="text-align:center;">Operaciones</th>
+
+                  </tr>';
                   while($fila=$result->fetch_object()){
                       echo "<tr>
                               <td><img src='../images/caratulas/".$fila->CARATULA."' style='width:40px;height:40px' alt='' /></td>
                               <td>$fila->TITULO</td>
-                              <td>$fila->PRECIO</td>
+                              <td>$fila->PRECIO €</td>
                               <td>$fila->CANTIDAD</td>
                               <td>
-                                <a href='../tienda/cesta.php?codisco=".$fila->COD_DISCO."'><button type='button' class='btn btn-danger'>Borrar</button></a>
+                                <a href='../tienda/cesta.php?codisco=".$fila->COD_DISCO."'><button type='button' class='btn btn-danger btn'><span class='glyphicon glyphicon-trash'></span> Borrar</button></a>
                               </td>
                             </tr>";
                   }

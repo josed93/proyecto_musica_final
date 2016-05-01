@@ -15,7 +15,7 @@
 
        echo '<table style="margin-top:2%;" class="table table-hover table-bordered table-responsive ">
        <tr style="font-weight:bold;text-align:center">
-          
+
            <td>NOMBRE</td>
            <td>FUNDACIÓN</td>
            <td>PÁGINA WEB</td>
@@ -34,8 +34,8 @@
               echo "<td>".$obj->FUNDACION."</td>";
               echo "<td><a href='".$obj->PAGINA_WEB."' target='_blank'>".$obj->PAGINA_WEB."</a></td>";
 
-              echo "<td><a href='./editar_discogra.php?codiscogra=$obj->COD_DISCOGRA'><button type='button' class='btn btn-warning'>Editar</button></a></td>";
-              echo "<td><a href='./borrar_discogra.php?codiscogra=$obj->COD_DISCOGRA'><button type='button' class='btn btn-danger'>Borrar</button></a></td>";
+              echo "<td><a href='./editar_discogra.php?codiscogra=$obj->COD_DISCOGRA'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-edit'> Editar</button></a></td>";
+              echo "<td><a href='./borrar_discogra.php?codiscogra=$obj->COD_DISCOGRA'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'> Borrar</button></a></td>";
 
 
 

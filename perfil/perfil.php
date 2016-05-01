@@ -30,6 +30,27 @@ else{
 
 <body>
 
+  <style>
+  .radio img{
+      width: 90%;
+      height: 90%;
+
+
+  }
+  .radio{
+    display: inline-block;
+    width: 20%;
+    height: 20%;
+
+
+  }
+
+
+
+
+
+  </style>
+
     <div id="top">
         <div id="logo">
             <a href="../inicio/inicio.php"><img src="../images/prueba.png"></a>
@@ -300,7 +321,7 @@ else{
        echo '<li><a href="#menu2" data-toggle="tab">Temas</a></li>';
        }
        if($_SESSION['rol']=='user'){
-       echo '<a href="./baja.php" style="float:right;"><button type="button" class="btn btn-danger">Dar de baja</button></a>';
+       echo '<a href="./baja.php" style="float:right;"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Dar de baja</button></a>';
        }
      echo '</ul>
 
@@ -397,10 +418,10 @@ $obj = $result->fetch_object();
           </div>
 
                 <div class="form-group">
-                  <label class="col-sm-2 control-label" for="formGroup"></label>
+                  <label class="col-sm-6 control-label" for="formGroup"></label>
                   <div class="col-sm-4">
 
-                <button type="submit" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> Guardar</button>
+                <button type="submit" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> Modificar</button>
 
 
 
@@ -456,7 +477,7 @@ $obj2 = $result2->fetch_object();
             </div>
 
               <div id="modif2" style="clear:left;float:right;margin-top:8%;">
-              <input id="submit2" type="submit" class="btn btn-primary" value="Modificar">
+              <button type="submit" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> Modificar</button>
               </div>
 
           </div>
@@ -496,38 +517,36 @@ $obj2 = $result2->fetch_object();
 
     ?>
         <form  action="temas.php" class="form-horizontal " method="POST">
-          <form>
+          <form id="tem">
             <input class="form-control" name="id" type="hidden"  value=<?php echo $obj3->COD_USU;?> >
 
 
             <div class="radio">
-              <label>
+              <label for="opciones_0"><img src="../images/temas/0.jpg" alt="??" /></label>
                 <input type="radio" name="opciones" id="opciones_0" value="0" >
-                Tema por defecto
-              </label>
+
 
             </div>
             <div class="radio">
-            <label>
+              <label for="opciones_1"><img src="../images/temas/1.jpg" alt="??" /></label>
               <input type="radio" name="opciones" id="opciones_1" value="1" >
-              Tema verde
-            </label>
+
             </div>
             <div class="radio">
-            <label>
+              <label for="opciones_2"><img src="../images/temas/2.jpg" alt="??" /></label>
               <input type="radio" name="opciones" id="opciones_2" value="2" >
-              Tema naranja
-            </label>
+
             </div>
             <div class="radio">
-            <label>
+              <label for="opciones_3"><img src="../images/temas/3.jpg" alt="??" /></label>
               <input type="radio" name="opciones" id="opciones_3" value="3">
-              Tema rojo
-            </label>
+
             </div>
+
+
 
                       <div id="modif2" style="clear:left;float:right;margin-top:8%;">
-                      <input id="submit3" type="submit" class="btn btn-primary" value="Modificar">
+                        <button type="submit" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> Modificar</button>
                       </div>
 
   </form>

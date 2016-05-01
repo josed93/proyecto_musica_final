@@ -11,6 +11,7 @@ include_once('variablesdeconexion.php');
     $db_host=$localhost; //my db host
     $db_password=$password; //my db password ORIGINAL
     $db_name=$database; //my db name
-  }
+
+}
 
 ?>

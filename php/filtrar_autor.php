@@ -19,7 +19,7 @@
        echo '<table style="margin-top:2%;" class="table table-hover table-bordered ">
        <tr style="font-weight:bold;text-align:center;background-color:#F2F2F2">
 
-          
+
            <td>NOMBRE</td>
            <td>FECHA DE NACIMIENTO</td>
            <td colspan="2">OPERACIONES</td>
@@ -36,8 +36,8 @@ while($obj = $result->fetch_object()) {
               echo "<td>".$obj->NOMBRE_A."</td>";
               echo "<td>".$obj->FECHA_NAC."</td>";
 
-              echo "<td><a href='./editar_autor.php?codautor=$obj->COD_AUTOR'><button type='button' class='btn btn-warning'>Editar</button></a></td>";
-              echo "<td><a href='./borrar_autor.php?codautor=$obj->COD_AUTOR'><button type='button' class='btn btn-danger'>Borrar</button></a></td>";
+              echo "<td><a href='./editar_autor.php?codautor=$obj->COD_AUTOR'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-edit'> Editar</button></a></td>";
+              echo "<td><a href='./borrar_autor.php?codautor=$obj->COD_AUTOR'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'> Borrar</button></a></td>";
 
 
 

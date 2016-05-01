@@ -307,7 +307,7 @@ else{
 
         </div>
         <div id="modif" style="clear:left;float:right;margin-right:25%;">
-           <input type="submit" class="btn btn-primary" value="Modificar">
+           <button type="submit" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> Modificar</button>
         </div>
 
       </div>

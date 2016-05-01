@@ -20,7 +20,7 @@
 
 
 	$grafico = new Graph(1200,500,"auto");
-	$grafico->SetScale("textlin");
+	$grafico->SetScale("textint");
   $grafico->xaxis->title->Set("CATEGORIA");
   $grafico->xaxis->SetTickLabels($label);
   $grafico->yaxis->title->Set("CANTIDAD DE DISCOS");
@@ -31,7 +31,8 @@
 	$barplot1->SetWidth(80);
 
 	$grafico->Add($barplot1);
-
+  $barplot1->value->SetFormat('%01.0f');
+  $barplot1->value->Show();
 	$grafico->Stroke();
   $grafico->stroke("IMG3.PNG");
 

@@ -83,9 +83,21 @@
 			</li>
 
 
-
 			<li>
-				<a href="../aboutus/aboutus.php"><div id ="excep" class="contenedor_general">
+				<a href="../admin/graficostotales.php"><div class="contenedor_general">
+
+					<div class="contenedor_uno">
+						<p class="texto_uno"><img src="../images/iconos_menu/estadistica.png">GRÁFICOS</p>
+					</div>
+
+					<div class="contenedor_dos">
+                        <p class="texto_dos"><img src="../images/iconos_menu/estadistica.png">GRÁFICOS</p>
+					</div>
+
+                </div></a>
+			</li>
+      <li>
+				<a href="../admin/sobrenosotros.php"><div id ="excep" class="contenedor_general">
 
 					<div class="contenedor_uno">
 						<p class="texto_uno"><img src="../images/iconos_menu/aboutus_black.PNG">SOBRE NOSOTROS</p>
@@ -93,21 +105,6 @@
 
 					<div class="contenedor_dos">
                         <p class="texto_dos"><img src="../images/iconos_menu/aboutus_black.PNG">SOBRE NOSOTROS</p>
-					</div>
-
-                </div></a>
-			</li>
-
-
-			<li>
-				<a href="../contacto/contacto.php"><div class="contenedor_general">
-
-					<div class="contenedor_uno">
-						<p class="texto_uno"><img src="../images/iconos_menu/contac_black.png">CONTACTO</p>
-					</div>
-
-					<div class="contenedor_dos">
-                        <p class="texto_dos"><img src="../images/iconos_menu/contac_black.png">CONTACTO</p>
 					</div>
 
                 </div></a>

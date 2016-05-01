@@ -33,6 +33,9 @@ else{
 
 <body>
   <style>
+  #ddisco th{
+    font-size: 90%;
+  }
 
 
 
@@ -304,8 +307,8 @@ else{
       }
       ?>
     </div>
-      <div style="float:right;width:55%;height:100%;">
-        <table>
+      <div style="float:right;width:50%;height:100%;font-size:150%;font-family:cursive">
+        <table id="ddisco">
           <?php
           $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
            //TESTING IF THE CONNECTION WAS RIGHT
@@ -318,8 +321,8 @@ else{
             if($result=$connection->query($consulta)){
               while ($fila=$result->fetch_object()) {
                   echo '<tr>
-                          <th>TITULO: </th>
-                          <td style="font-size:150%">'.$fila->TITULO.'</td>
+                          <th>TÍTULO: </th>
+                          <td style="font-size:150%;font-weight:bold;color:#0080FF">'.$fila->TITULO.'</td>
                         </tr>
 
                         <tr>
@@ -338,7 +341,7 @@ else{
                       </tr>
                       <tr>
                         <th>PRECIO: </th>
-                        <td>'.$fila->PRECIO.'&nbsp€</td>
+                        <td style="font-size:180%;font-weight:bold;color:red">'.$fila->PRECIO.'&nbsp€</td>
                       </tr>';
 
 
@@ -347,7 +350,8 @@ else{
                                 <td>
                                     <form class="" action="#" method="post">
                                       <input type="hidden" name="codisco" value="'.$fila->COD_DISCO.'">
-                                      <input type="submit" class="btn btn-success" name="añadircarrito" value="Añadir al carrito">
+                                      <button type="submit" style="margin:20% 0 0 100%" class="btn btn-success btn-lg" name="añadircarrito"><span class="glyphicon glyphicon-shopping-cart"></span> Añadir al carrito</button>
+
                                     </form>
                                 </td>
                               </tr>';

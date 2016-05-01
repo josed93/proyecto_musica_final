@@ -457,6 +457,11 @@ body{
 	overflow: hidden;
 	border-bottom:4px solid black;
 }
+.container-fluid{
+  padding-right: 0;
+  padding-left: 0;
+  margin-left: -5px;
+}
 
 #top_menu2 p.texto_uno, p.texto_dos{
     margin-left: 50px;

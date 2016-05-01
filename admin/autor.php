@@ -205,7 +205,7 @@ else{
 
     <div id="center" class="container">
       <div class="container well well-sm" style="margin-bottom:0%">
-      <a href="./anadir_autor.php"><button type="button" class="btn btn-success col-sm-1">Añadir</button></a>
+      <a href="./anadir_autor.php"><button type="button" class="btn btn-success col-sm-1"><span class="glyphicon glyphicon-plus"></span> Añadir</button></a>
 	<div class="row">
 	<h5 style="font-weight:bold;color:#00BFFF;float:left;" class="col-md-offset-4">AUTORES AÑADIDOS</h5>
 		<div class="col-md-offset-10" style="margin-right:1%">
@@ -254,8 +254,8 @@ else{
               echo "<td>".$obj->NOMBRE_A."</td>";
               echo "<td>".$obj->FECHA_NAC."</td>";
 
-              echo "<td><a href='./editar_autor.php?codautor=$obj->COD_AUTOR'><button type='button' class='btn btn-warning'>Editar</button></a></td>";
-              echo "<td><a href='./borrar_autor.php?codautor=$obj->COD_AUTOR'><button type='button' class='btn btn-danger'>Borrar</button></a></td>";
+              echo "<td><a href='./editar_autor.php?codautor=$obj->COD_AUTOR'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-edit'> Editar</button></a></td>";
+              echo "<td><a href='./borrar_autor.php?codautor=$obj->COD_AUTOR'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'> Borrar</button></a></td>";
 
 
 

@@ -12,9 +12,6 @@
     }
 
 ?>
-<?php
-  //include_once("./db_configuration.php");
-?>
 
 <!DOCTYPE html>
 <html lang="">
@@ -276,7 +273,8 @@ else{
       <div class="container well well-sm" style="margin-bottom:-1%">
 
   <div class="row">
-  <h5 style="font-weight:bold;color:orange;float:left;" class="col-md-offset-5">DISCOS DE LA TIENDA</h5>
+    <a href="../estadisticas/discosmascomprados.php"><button type="button" style="margin-left:1%" class="btn btn-primary col-sm-2"><span class="glyphicon glyphicon-stats"></span> Ver discos más vendidos</button></a>
+  <h5 style="font-weight:bold;color:orange;float:left;font-family:cursive" class="col-md-offset-3">DISCOS DE LA TIENDA</h5>
     <div class="col-md-offset-10" style="margin-right:1%">
             <div class="input-group custom-search-form" >
               <input id="sti" type="text" class="form-control" placeholder="Filtrar por titulo de disco:">

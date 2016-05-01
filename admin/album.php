@@ -205,7 +205,7 @@ else{
 
     <div id="center" class="container">
       <div class="container well well-sm" style="margin-bottom:-1%">
-      <a href="./anadir_disco.php"><button type="button" class="btn btn-success col-sm-1">Añadir</button></a>
+      <a href="./anadir_disco.php"><button type="button" class="btn btn-success col-sm-1"><span class="glyphicon glyphicon-plus"></span> Añadir</button></a>
 
 	<div class="row">
 	<h5 style="font-weight:bold;color:#00BFFF;float:left;" class="col-md-offset-4">DISCOS AÑADIDOS</h5>
@@ -254,10 +254,10 @@ else{
               echo "<td>".$obj->TITULO."</td>";
               echo "<td>".$obj->NOMBRE_A."</td>";
               echo "<td>".$obj->PRECIO."&nbsp€</td>";
-              echo "<td><a href='?codisco1=$obj->COD_DISCO'><button type='button' class='btn btn-info'>Ver detalles</button></a></td>";
-              echo "<td><a href='?codisco2=$obj->COD_DISCO'><button type='button' class='btn btn-primary'>Ver Canciones</button></a></td>";
-              echo "<td><a href='./editar_disco.php?codisco=$obj->COD_DISCO'><button type='button' class='btn btn-warning'>Editar</button></a></td>";
-              echo "<td><a href='./borrar_disco.php?codisco=$obj->COD_DISCO'><button type='button' class='btn btn-danger'>Borrar</button></a></td>";
+              echo "<td><a href='?codisco1=$obj->COD_DISCO'><button type='button' class='btn btn-info'><span class='glyphicon glyphicon-search'></span> Ver detalles</button></a></td>";
+              echo "<td><a href='?codisco2=$obj->COD_DISCO'><button type='button' class='btn btn-primary'><span class='glyphicon glyphicon-play-circle'></span> Ver Canciones</button></a></td>";
+              echo "<td><a href='./editar_disco.php?codisco=$obj->COD_DISCO'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-edit'> Editar</button></a></td>";
+              echo "<td><a href='./borrar_disco.php?codisco=$obj->COD_DISCO'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'> Borrar</button></a></td>";
 
 
 
@@ -368,7 +368,7 @@ else{
    ?>
         <div class="col-md-8 col-md-offset-2" >
             <div class="nav nav-tabs well well-sm " style="text-align:center;">
-            <a href="./anadir_cancion.php"><button type="button" class="btn btn-success col-sm-1">Añadir</button></a>
+            <a href="./anadir_cancion.php"><button type="button" class="btn btn-success col-sm-2"><span class="glyphicon glyphicon-plus"></span> Añadir</button></a>
             <div class="row">
 	<h5 style="font-weight:bold;color:#00BFFF;float:left;" class="col-md-offset-4">CANCIONES</h5>
 		<div class="col-md-offset-9" style="margin-right:1%">
@@ -397,8 +397,8 @@ else{
 
               echo "<td>".$obj3->TITULO_C."</td>";
               echo "<td>".$obj3->DURACION."</td>";
-              echo "<td><a href='./editar_cancion.php?codcan=$obj3->COD_CANCION'><button type='button' class='btn btn-warning'>Editar</button></a></td>";
-              echo "<td><a href='./borrar_cancion.php?codcan=$obj3->COD_CANCION'><button type='button' class='btn btn-danger'>Borrar</button></a></td>";
+              echo "<td><a href='./editar_cancion.php?codcan=$obj3->COD_CANCION'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-edit'> Editar</button></a></td>";
+              echo "<td><a href='./borrar_cancion.php?codcan=$obj3->COD_CANCION'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'> Borrar</button></a></td>";
 
 
 

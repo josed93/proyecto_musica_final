@@ -22,18 +22,32 @@ GROUP BY LP.COD_DISCO";
  }
 
 	$grafico = new Graph(1200,500,"auto");
-	$grafico->SetScale("textlin");
-  $grafico->xaxis->title->Set("TITULO CANCION");
+	$grafico->SetScale("textint");
+  $grafico->xaxis->title->Set("TITULO DE CANCION");
+  $grafico->xaxis->title->SetColor("darkred");
+  $grafico->xaxis->title->SetFont(FF_COURIER, FS_BOLD, 16);
+
+  $grafico->xaxis->SetColor("black");
+  $grafico->xaxis->SetFont(FF_ARIAL, FS_BOLD, 10);
   $grafico->xaxis->SetTickLabels($label);
   $grafico->yaxis->title->Set("TOTAL VENTAS");
+  $grafico->yaxis->title->SetColor("darkred");
+  $grafico->yaxis->title->SetFont(FF_COURIER, FS_BOLD, 16);
+  $grafico->yaxis->SetFont(FF_ARIAL, FS_BOLD, 10);
+
+
+
+
+
 
 
 	$barplot1=new BarPlot($datos);
-	$barplot1->SetFillGradient("#BE81F7","#E3CEF6",GRAD_HOR);
+	$barplot1->SetFillGradient('orange','darkred',GRAD_HOR);
 	$barplot1->SetWidth(80);
 
 	$grafico->Add($barplot1);
-
+  $barplot1->value->SetFormat('%01.0f');
+  $barplot1->value->Show();
 	$grafico->Stroke();
   $grafico->stroke("IMG4.PNG");
 

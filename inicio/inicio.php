@@ -1,14 +1,10 @@
 <?php
   include_once("../plantilla/db_configuration.php");
-  include_once("../plantilla/variablesdeconexion.php");
 
   $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
      //TESTING IF THE CONNECTION WAS RIGHT
-  if ($connection->connect_errno) {
-       header("Location: ../install.php");
-       printf("Connection failed: %s\n", $connection->connect_error);
-       exit();
-  }else{
+  if ($result = $connection->query("SELECT * FROM USUARIO;")){
+
 
 ?>
 <?php
@@ -50,6 +46,8 @@ else{
     }
       #carrusel {
         background-color: #E6E6E6;
+        font-family: cursive;
+
 
       }
       #carrusel h3 {
@@ -58,6 +56,9 @@ else{
       }
       #carrusel h2 {
         color: red;
+        font-size: 300%;
+        font-weight: bold;
+
 
       }
       #carrusel p{
@@ -319,7 +320,7 @@ else{
 
     <div id="center">
        <div class="jumbotron">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 80%; margin: 0 auto">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 80%; margin: 0 auto;">
 
 
   <?php
@@ -352,7 +353,7 @@ else{
     if($cont==0){
       $cont=1;
       echo '<div class="item active">
-          <img src="../images/caratulas/'.$obj->CARATULA.'" alt="Chania">
+          <img style="border-radius:5%" src="../images/caratulas/'.$obj->CARATULA.'" alt="Chania">
           <div class="carousel-caption">
             <a href="../tienda/detalles_disco.php?codisco='.$obj->COD_DISCO.'"><h3>'.$obj->NOMBRE_A.'</h3></a>
             <p>'.$obj->TITULO.'</p>
@@ -363,7 +364,7 @@ else{
     }else{
 
         echo '<div class="item">
-          <img src="../images/caratulas/'.$obj->CARATULA.'" alt="Chania">
+          <img style="border-radius:5%" src="../images/caratulas/'.$obj->CARATULA.'" alt="Chania">
           <div class="carousel-caption">
           <a href="../tienda/detalles_disco.php?codisco='.$obj->COD_DISCO.'"><h3>'.$obj->NOMBRE_A.'</h3></a>
           <p>'.$obj->TITULO.'</p>
@@ -405,5 +406,9 @@ else{
 
 <?php
 ob_end_flush();
+}else{
+  printf("Connection failed: %s\n", $connection->connect_error);
+    header('Location: ../instalacion/install.php');
+
 }
 ?>

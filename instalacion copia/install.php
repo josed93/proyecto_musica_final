@@ -78,7 +78,7 @@
                    exit();
               }else{
                 include("./database.php");
-                $file = fopen("../plantilla/variablesdeconexion.php", "a");
+                $file = fopen("./plantilla/variablesdeconexion.php", "a");
                 fwrite($file, "<?php"."\n");
                 fwrite($file, "$"."username="."'".$username."';"."\n");
                 fwrite($file, "$"."password="."'".$password."';"."\n");
@@ -86,10 +86,9 @@
                 fwrite($file, "$"."localhost="."'".$localhost."';"."\n");
                 fwrite($file, "?>"."\n");
                 fclose($file);
-                unlink('../instalacion/install.php');
-                unlink('../instalacion/database.php');
-                rmdir('../instalacion');
-                 header('Location:../inicio/inicio.php');
+                unlink('install.php');
+                 unlink('database.php');
+                 header('Location:./inicio/inicio.php');
               }
           }
         ?>

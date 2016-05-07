@@ -310,7 +310,7 @@ else{
         <div style="float:right">
             <img src="../images/logo2.PNG">
         </div>
-        <div style="width:45%;font-style:italic;font-size:120%;font-family:tahoma;clear: left;">
+        <div style="width:55%;font-size:120%;font-family:tahoma;clear: left;border:solid 2px grey;border-radius:2%;margin-bottom:2%">
       <p>Página Web desarrollada por José Daniel de las Heras Díaz para el proyecto de Implantación de aplicaciones web de ASIR Segundo Año.</p>
       <p>Delasheras-Music va dedicada principalmente a la venta de discos de música de una gran multitud de géneros.</p>
       <br>
@@ -344,7 +344,7 @@ else{
            <div class="well well-sm">
                <form class="form-horizontal" method="post">
                    <fieldset>
-                       <legend class="text-center header">Contáctenos</legend>
+                       <legend class="text-center header" style="font-family:impact">Contáctenos</legend>
 
                        <div class="form-group">
                            <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-user bigicon"></i></span>
@@ -392,8 +392,8 @@ else{
    </div>
 </div>
 <div>
- <legend class="text-center header">O mediante nuestras redes sociales</legend>
- <ul class="list-inline" style="margin-left:37%;">
+ <legend class="text-center header" style="font-family:impact">O mediante nuestras redes sociales</legend>
+ <ul class="list-inline" style="margin-left:37%;font-weight:bold">
    <li><a href="https://www.facebook.com/josedaniel.delasheras" target="_blank">Facebook</a></li>
    <li><a href="https://twitter.com/zombiejd93" target="_blank">Twitter</a></li>
    <li><a href="https://plus.google.com/+sangetsubankai/posts" target="_blank">Google+</a></li>

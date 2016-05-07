@@ -207,13 +207,20 @@ else{
       <div class="container well well-sm" style="margin-bottom:0%">
       <a href="./anadir_discogra.php"><button type="button" class="btn btn-success col-sm-1"><span class="glyphicon glyphicon-plus"></span> Añadir</button></a>
 	<div class="row">
-	<h5 style="font-weight:bold;color:#00BFFF;float:left;" class="col-md-offset-4">DISCOGRÁFICAS AÑADIDAS</h5>
-		<div class="col-md-offset-10" style="margin-right:1%">
-            <div class="input-group custom-search-form" >
-              <input id="sdisc" type="text" class="form-control" placeholder="Filtrar por nombre:">
+	<h5 style="font-weight:bold;color:#00BFFF;float:left;font-family:cursive" class="col-md-offset-4">DISCOGRÁFICAS AÑADIDAS</h5>
+  <div class="input-group custom-search-form col-md-2" style="margin-right:1%;float:right" >
+    <input id="sdisc" type="text" class="form-control" placeholder="Filtrar por nombre:">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
 
-             </div>
-        </div>
+   </div>
+   <div style="float:right;margin-right:0.2%;">
+   <a href="../pdf/listadiscograD.php"><button type="button" style=" background-color: #DF0101;color:white;font-weight:bold" class="btn btn-muted col-sm-0"
+     onMouseOver="this.style.cssText='background-color: #FF0000;color:#2E2E2E;font-weight:bold'" onMouseOut="this.style.cssText='background-color: #DF0101;color:white;font-weight:bold'"><span class="glyphicon glyphicon-download-alt"></span></button></a>
+ </div>
+   <div style="float:right;margin-right:0.2%;">
+   <a href="../pdf/listadiscogra.php"><button type="button" style=" background-color: #DF0101;color:white;font-weight:bold" class="btn btn-muted col-sm-0"
+     onMouseOver="this.style.cssText='background-color: #FF0000;color:#2E2E2E;font-weight:bold'" onMouseOut="this.style.cssText='background-color: #DF0101;color:white;font-weight:bold'"><span class="glyphicon glyphicon-file"></span> PDF</button></a>
+ </div>
 
 	</div>
 

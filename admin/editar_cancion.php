@@ -278,7 +278,7 @@ else{
 
      echo '<div class="container">
     <div class="well well-sm" style="text-align:center">
-     <h5 style="font-weight:bold">EDITAR CANCIÓN</h5>
+     <h5 style="font-weight:bold;font-family:cursive;color:darkorange">EDITAR CANCIÓN</h5>
 
      </div>
     <div id="myTabContent" class="tab-content">

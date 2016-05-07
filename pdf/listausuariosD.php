@@ -54,7 +54,6 @@ while($obj = $usuarios->fetch_object()){
 	$pdf->Ln(8);
 }
 $pdf->SetFont('Arial', 'B', 8);
-/*$filename='listausuarios.pdf';
-$pdf->Output($filename,'D');*/
-$pdf->Output();
+$filename='listausuarios.pdf';
+$pdf->Output($filename,'D');
 ?>

@@ -76,14 +76,21 @@ else{
 
           }else{
 
-           while($obj = $result->fetch_object()) {
-                  $rol=$obj->ROL;
+            while($obj = $result->fetch_object()) {
+                 $rol=$obj->ROL;
+                 $estado=$obj->ESTADO;
+                 $style=$obj->STYLE;
 
-                  $_SESSION["user"]=$userlogin;
-                  $_SESSION["rol"]=$rol;
+
+                 $_SESSION["user"]=$userlogin;
+                 $_SESSION["rol"]=$rol;
+                 $_SESSION["estado"]=$estado;
+                 $_SESSION["style"]=$style;
 
 
-            }
+
+                   }
+
               header("Location: ../registro/registro.php");
 
 

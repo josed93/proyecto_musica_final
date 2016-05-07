@@ -270,7 +270,8 @@ else{
         <?php include("../plantilla/alerts.php");?>
 
     <div id="center" class="container">
-      <h1 style="text-align:center;margin:2% 0 1% 0;font-family:Courier New;font-weight:bold;">DISCOS MÁS VENDIDOS</h1>
+      <h1 style="text-align:center;margin:2% 0 1% 0;font-family:Courier New;font-weight:bold;color:darkred;text-decoration:underline">DISCOS MÁS VENDIDOS</h1>
+
       <img src="../php/discosmasvendidos.php" style="width:100%;" alt="" />
   </div>
     <?php include("../plantilla/footer.php");?>

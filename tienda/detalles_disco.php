@@ -90,17 +90,21 @@ else{
 
           }else{
 
-           while($obj = $result->fetch_object()) {
-                $rol=$obj->ROL;
-                $estado=$obj->ESTADO;
+            while($obj = $result->fetch_object()) {
+                 $rol=$obj->ROL;
+                 $estado=$obj->ESTADO;
+                 $style=$obj->STYLE;
 
 
-                $_SESSION["user"]=$userlogin;
-                $_SESSION["rol"]=$rol;
-                $_SESSION["estado"]=$estado;
+                 $_SESSION["user"]=$userlogin;
+                 $_SESSION["rol"]=$rol;
+                 $_SESSION["estado"]=$estado;
+                 $_SESSION["style"]=$style;
 
 
-                  }
+
+                   }
+
 
            /* while($obj = $result->fetch_object()) {
                   $rol=$obj->ROL;
@@ -280,7 +284,7 @@ else{
       <div class="nav nav-tabs well well-sm " style="text-align:center;">
 
       <div class="row">
-<h5 style="font-weight:bold;color:ORANGE;float:left;" class="col-md-offset-5">DETALLES DEL DISCO</h5>
+<h5 style="font-weight:bold;color:darkorange;float:left;font-family:cursive;" class="col-md-offset-5">DETALLES DEL DISCO</h5>
 <div class="col-md-offset-9" style="margin-right:1%">
 
   </div>
@@ -361,7 +365,14 @@ else{
             }
            ?>
         </table>
+        <br>
+
         <?php
+        if(!isset($_SESSION["user"])){
+          echo '<p style="font-size:80%;color:darkgreen;font-family:arial"><em>*Para poder comprar es necesario tener una cuenta y estar logueado</em></p>';
+
+        }else {}
+
         if(isset($_POST["codisco"])){
           $idproducto=$_POST["codisco"];
 

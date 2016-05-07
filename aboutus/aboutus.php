@@ -76,17 +76,20 @@ else{
 
           }else{
 
-           while($obj = $result->fetch_object()) {
-                $rol=$obj->ROL;
-                $estado=$obj->ESTADO;
+            while($obj = $result->fetch_object()) {
+                 $rol=$obj->ROL;
+                 $estado=$obj->ESTADO;
+                 $style=$obj->STYLE;
 
 
-                $_SESSION["user"]=$userlogin;
-                $_SESSION["rol"]=$rol;
-                $_SESSION["estado"]=$estado;
+                 $_SESSION["user"]=$userlogin;
+                 $_SESSION["rol"]=$rol;
+                 $_SESSION["estado"]=$estado;
+                 $_SESSION["style"]=$style;
 
 
-                  }
+
+                   }
 
            /* while($obj = $result->fetch_object()) {
                   $rol=$obj->ROL;
@@ -289,7 +292,7 @@ else{
         <div style="float:right">
             <img src="../images/logo2.PNG">
         </div>
-        <div style="width:45%;font-style:italic;font-size:120%;font-family:tahoma;clear: left;">
+        <div style="width:55%;font-size:120%;font-family:tahoma;clear: left;border:solid 2px grey;border-radius:2%;margin-bottom:2%">
       <p>Página Web desarrollada por José Daniel de las Heras Díaz para el proyecto de Implantación de aplicaciones web de ASIR Segundo Año.</p>
       <p>Delasheras-Music va dedicada principalmente a la venta de discos de música de una gran multitud de géneros.</p>
       <br>

@@ -204,17 +204,22 @@ else{
         <?php include("../plantilla/alerts.php");?>
 
     <div id="center" class="container">
-      <h1 style="text-align:center;margin:2% 0 1% 0;font-family:Courier New;font-weight:bold;">ESTADÍSTICAS GENERALES</h1>
-      <img src="../php/estadisticas.php" style="width:95%;" alt="" />
+      <h1 style="text-align:center;margin:2% 0 1% 0;font-family:Courier New;font-weight:bold;color:purple;text-decoration:underline">ESTADÍSTICAS GENERALES</h1>
+      <img src="../php/estadisticas.php" style="width:100%;" alt="" />
     </br></br>
-    <h1 style="text-align:center;margin:2% 0 1% 0;font-family:Courier New;font-weight:bold;">PEDIDOS POR MES</h1>
-    <img src="../php/pedidos_mes.php" style="width:95%;" alt="" />
+    <hr style="border:solid 1px grey">
+    <h1 style="text-align:center;margin:2% 0 1% 0;font-family:Courier New;font-weight:bold;color:#58ACFA;text-decoration:underline">PEDIDOS POR MES</h1>
+    <img src="../php/pedidos_mes.php" style="width:100%;" alt="" />
     </br></br>
-    <h1 style="text-align:center;margin:2% 0 1% 0;font-family:Courier New;font-weight:bold;">DISCOS MÁS VENDIDOS</h1>
+    <hr style="border:solid 1px grey">
+
+    <h1 style="text-align:center;margin:2% 0 1% 0;font-family:Courier New;font-weight:bold;color:darkred;text-decoration:underline">DISCOS MÁS VENDIDOS</h1>
     <img src="../php/discosmasvendidos.php" style="width:100%;" alt="" />
     </br></br>
-  <h1 style="text-align:center;margin:2% 0 1% 0;font-family:Courier New;font-weight:bold;">DISCOS POR CATEGORIA</h1>
-  <img src="../php/discosxcategoria.php" style="width:95%;" alt="" />
+    <hr style="border:solid 1px grey">
+
+    <h1 style="text-align:center;margin:2% 0 1% 0;font-family:Courier New;font-weight:bold;"><span style="color:#FA58F4;text-decoration:underline">DISCOS</span> <span style="color:#2E9AFE;text-decoration:underline">POR</span> <span style="color:#04B431;text-decoration:underline">CATEGORIA</span></h1>
+  <img src="../php/discosxcategoria.php" style="width:100%;" alt="" />
     </div>
     <?php include("../plantilla/footer.php");?>
     <div class="ir-arriba"><img src="../images/icon_up.PNG"></div>

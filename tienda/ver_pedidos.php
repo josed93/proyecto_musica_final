@@ -271,14 +271,19 @@ else{
       <div class="nav nav-tabs well well-sm " style="text-align:center;">
 
       <div class="row">
-<h5 style="font-weight:bold;color:green;float:left;" class="col-md-offset-5">Pedidos de <?php echo $_SESSION["user"] ?> </h5>
-<div class="col-md-offset-9" style="margin-right:1%">
-
-  </div>
+<h5 style="font-weight:bold;color:darkorange;float:left;font-family:cursive;font-size:130%" class="col-md-offset-5">Pedidos de <?php echo $_SESSION["user"] ?> </h5>
+<div style="float:right;margin-right:1%;">
+<a href="../pdf/listapedidosuserD.php"><button type="button" style=" background-color: #DF0101;color:white;font-weight:bold" class="btn btn-muted col-sm-0"
+  onMouseOver="this.style.cssText='background-color: #FF0000;color:#2E2E2E;font-weight:bold'" onMouseOut="this.style.cssText='background-color: #DF0101;color:white;font-weight:bold'"><span class="glyphicon glyphicon-download-alt"></span></button></a>
+</div>
+<div style="float:right;margin-right:0.2%;">
+<a href="../pdf/listapedidosuser.php"><button type="button" style=" background-color: #DF0101;color:white;font-weight:bold" class="btn btn-muted col-sm-0"
+  onMouseOver="this.style.cssText='background-color: #FF0000;color:#2E2E2E;font-weight:bold'" onMouseOut="this.style.cssText='background-color: #DF0101;color:white;font-weight:bold'"><span class="glyphicon glyphicon-file"></span> PDF</button></a>
+</div>
 </div>
  </div>
 
-      <div id="tabla" class="table-responsive">
+      <div id="tabla" style="height:300px;overflow: auto" class="table-responsive">
       <table   style="margin-top:20px;text-align:center" class="table table-hover table-bordered">
           <tr class="active">
             <th style="text-align:center" >Disco</th>
@@ -297,7 +302,7 @@ else{
 
 
       //Aqui ponemos $user y $pass porque recogemos las variables arriba por eso no usamos $_POST.
-      $consulta="SELECT *,LP.CANTIDAD AS CANT FROM PEDIDO P,USUARIO U,LINEA_PEDIDO LP,DISCO D WHERE P.COD_USU=U.COD_USU AND P.COD_PEDIDO=LP.COD_PEDIDO AND LP.COD_DISCO=D.COD_DISCO AND U.USERNAME='".$_SESSION["user"]."'";
+      $consulta="SELECT *,LP.CANTIDAD AS CANT FROM PEDIDO P,USUARIO U,LINEA_PEDIDO LP,DISCO D WHERE P.COD_USU=U.COD_USU AND P.COD_PEDIDO=LP.COD_PEDIDO AND LP.COD_DISCO=D.COD_DISCO AND U.USERNAME='".$_SESSION["user"]."' ORDER BY FECHA_PED ASC";
 
       if ($result = $connection->query($consulta)) {
 

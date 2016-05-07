@@ -274,10 +274,13 @@ else{
     <div id="center" class="container">
       <div id="tabla" class="container">
 
-        <a href='../tienda/cesta.php?hacerpedido=yes' id='hp' ><button style="float:right;margin-bottom:10px;" type='button' class='btn btn-success btn-lg'><span class="glyphicon glyphicon-ok"></span> Realizar pedido</button></a>
 
 
-        <?php
+        <a href='../tienda/cesta.php?hacerpedido=yes' id='hp' ><button style='float:right;margin-bottom:10px;' type='button'
+          class='btn btn-success btn-lg'><span class='glyphicon glyphicon-ok'></span> Realizar pedido</button></a>
+
+          <?php
+
             if(isset($_GET["hacerpedido"])){
               //CREATING THE CONNECTION
                $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
@@ -329,7 +332,6 @@ else{
 
                   $connection->query("UPDATE PEDIDO SET IMPORTE = $precioTotalPedido WHERE COD_PEDIDO=$idNuevoPedido");
                   $connection->query("DELETE FROM CESTA WHERE COD_USU=$idusuario");
-                  //header("Location: ./pedidos_usuario_logeado.php");
                   header("Location: ../tienda/cesta.php");
 
                 }
@@ -353,7 +355,7 @@ else{
 
 
       //Aqui ponemos $user y $pass porque recogemos las variables arriba por eso no usamos $_POST.
-      $consulta="SELECT D.CARATULA,D.TITULO,D.PRECIO,C.CANTIDAD,D.COD_DISCO FROM CESTA C,USUARIO U,DISCO D WHERE D.COD_DISCO=C.COD_DISCO AND C.COD_USU=U.COD_USU AND U.USERNAME='".$_SESSION["user"]."'";
+      $consulta="SELECT D.CARATULA,D.TITULO,D.PRECIO,C.CANTIDAD,D.COD_DISCO,(C.CANTIDAD*D.PRECIO) AS PRECIOTOTAL FROM CESTA C,USUARIO U,DISCO D WHERE D.COD_DISCO=C.COD_DISCO AND C.COD_USU=U.COD_USU AND U.USERNAME='".$_SESSION["user"]."'";
 
       if ($result = $connection->query($consulta)) {
             if ($result->num_rows==0) {
@@ -365,16 +367,25 @@ else{
                   oculta("hp");
 
                 });
+                $(document).ready(function(){
+                  oculta("so");
+
+                });
+                $(document).ready(function(){
+                  oculta("so2");
+
+                });
 
                   </script>';
 
             } else {
               echo '<table   style="margin-top:20px;text-align:center"  class="table">
                   <tr class="active">
-                    <th style="text-align:center;">Imagen</th>
-                    <th style="text-align:center;">Producto</th>
+                    <th style="text-align:center;">Carátula</th>
+                    <th style="text-align:center;">Título</th>
                     <th style="text-align:center;">Precio</th>
                     <th style="text-align:center;">Cantidad</th>
+                    <th style="text-align:center;">Precio Total Disco</th>
                     <th style="text-align:center;">Operaciones</th>
 
                   </tr>';
@@ -384,6 +395,7 @@ else{
                               <td>$fila->TITULO</td>
                               <td>$fila->PRECIO €</td>
                               <td>$fila->CANTIDAD</td>
+                              <td>$fila->PRECIOTOTAL €</td>
                               <td>
                                 <a href='../tienda/cesta.php?codisco=".$fila->COD_DISCO."'><button type='button' class='btn btn-danger btn'><span class='glyphicon glyphicon-trash'></span> Borrar</button></a>
                               </td>
@@ -393,9 +405,25 @@ else{
       }else{
         echo $connection->error;
       }
+
       ?>
     </table>
     <?php
+    $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
+     //TESTING IF THE CONNECTION WAS RIGHT
+     if ($connection->connect_errno) {
+         printf("Conexión fallida %s\n", $mysqli->connect_error);
+         exit();
+     }
+
+
+   //Aqui ponemos $user y $pass porque recogemos las variables arriba por eso no usamos $_POST.
+   $consulta="SELECT SUM(C.CANTIDAD*D.PRECIO) AS PRECIOTOTALTOTAL FROM CESTA C,USUARIO U,DISCO D WHERE D.COD_DISCO=C.COD_DISCO AND C.COD_USU=U.COD_USU AND U.USERNAME='".$_SESSION["user"]."'";
+   $result=$connection->query($consulta);
+   $fila=$result->fetch_object();
+   echo "<span id='so' style='font-weight:bold;font-size:150%;text-decoration: underline;'>Precio Total del pedido: </span>&nbsp&nbsp<span id='so2' style='font-weight:bold;font-size:190%;font-family:cursive;color:darkred'>$fila->PRECIOTOTALTOTAL €</span>";
+
+
         if(isset($_GET["codisco"])){
           $idproducto=$_GET["codisco"];
 

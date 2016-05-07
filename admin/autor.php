@@ -207,13 +207,20 @@ else{
       <div class="container well well-sm" style="margin-bottom:0%">
       <a href="./anadir_autor.php"><button type="button" class="btn btn-success col-sm-1"><span class="glyphicon glyphicon-plus"></span> Añadir</button></a>
 	<div class="row">
-	<h5 style="font-weight:bold;color:#00BFFF;float:left;" class="col-md-offset-4">AUTORES AÑADIDOS</h5>
-		<div class="col-md-offset-10" style="margin-right:1%">
-            <div class="input-group custom-search-form" >
-              <input id="scan" type="text" class="form-control" placeholder="Filtrar por nombre:">
+	<h5 style="font-weight:bold;color:#00BFFF;float:left;font-family:cursive" class="col-md-offset-4">AUTORES AÑADIDOS</h5>
+  <div class="input-group custom-search-form col-md-2" style="margin-right:1%;float:right" >
+    <input id="scan" type="text" class="form-control" placeholder="Filtrar por nombre:">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
 
-             </div>
-        </div>
+   </div>
+   <div style="float:right;margin-right:0.2%;">
+   <a href="../pdf/listautoresD.php"><button type="button" style=" background-color: #DF0101;color:white;font-weight:bold" class="btn btn-muted col-sm-0"
+     onMouseOver="this.style.cssText='background-color: #FF0000;color:#2E2E2E;font-weight:bold'" onMouseOut="this.style.cssText='background-color: #DF0101;color:white;font-weight:bold'"><span class="glyphicon glyphicon-download-alt"></span></button></a>
+ </div>
+   <div style="float:right;margin-right:0.2%;">
+   <a href="../pdf/listautores.php"><button type="button" style=" background-color: #DF0101;color:white;font-weight:bold" class="btn btn-muted col-sm-0"
+     onMouseOver="this.style.cssText='background-color: #FF0000;color:#2E2E2E;font-weight:bold'" onMouseOut="this.style.cssText='background-color: #DF0101;color:white;font-weight:bold'"><span class="glyphicon glyphicon-file"></span> PDF</button></a>
+ </div>
 
 	</div>
 
@@ -232,7 +239,7 @@ else{
 
 
    ?>
-      <div  id="tcan" class="col-md-6 col-md-offset-3 table-responsive">
+      <div  id="tcan" style="height:500px;overflow: auto" class="col-md-6 col-md-offset-3 table-responsive">
 
        <table style="margin-top:2%;" class="table table-hover table-bordered ">
        <tr style="font-weight:bold;text-align:center;background-color:#F2F2F2">

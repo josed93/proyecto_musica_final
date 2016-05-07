@@ -208,13 +208,20 @@ else{
       <a href="./anadir_disco.php"><button type="button" class="btn btn-success col-sm-1"><span class="glyphicon glyphicon-plus"></span> Añadir</button></a>
 
 	<div class="row">
-	<h5 style="font-weight:bold;color:#00BFFF;float:left;" class="col-md-offset-4">DISCOS AÑADIDOS</h5>
-		<div class="col-md-offset-10" style="margin-right:1%">
-            <div class="input-group custom-search-form" >
-              <input id="sdi" type="text" class="form-control" placeholder="Filtrar por nombre:">
+	<h5 style="font-weight:bold;color:#00BFFF;float:left;font-family:cursive" class="col-md-offset-4">DISCOS AÑADIDOS</h5>
+  <div class="input-group custom-search-form col-md-2" style="margin-right:1%;float:right" >
+    <input id="sdi" type="text" class="form-control" placeholder="Filtrar por nombre:">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
 
-             </div>
-        </div>
+   </div>
+   <div style="float:right;margin-right:0.2%;">
+   <a href="../pdf/listadiscosD.php"><button type="button" style=" background-color: #DF0101;color:white;font-weight:bold" class="btn btn-muted col-sm-0"
+     onMouseOver="this.style.cssText='background-color: #FF0000;color:#2E2E2E;font-weight:bold'" onMouseOut="this.style.cssText='background-color: #DF0101;color:white;font-weight:bold'"><span class="glyphicon glyphicon-download-alt"></span></button></a>
+ </div>
+   <div style="float:right;margin-right:0.2%;">
+   <a href="../pdf/listadiscos.php"><button type="button" style=" background-color: #DF0101;color:white;font-weight:bold" class="btn btn-muted col-sm-0"
+     onMouseOver="this.style.cssText='background-color: #FF0000;color:#2E2E2E;font-weight:bold'" onMouseOut="this.style.cssText='background-color: #DF0101;color:white;font-weight:bold'"><span class="glyphicon glyphicon-file"></span> PDF</button></a>
+ </div>
 	</div>
     </div>
 
@@ -231,7 +238,7 @@ else{
 
 
    ?>
-      <div id="tdi" class="col-md-8 col-md-offset-2 table-responsive">
+      <div id="tdi" style="height:500px;overflow: auto" class="col-md-10 col-md-offset-1 table-responsive" >
        <table style="margin-top:2%;" class="table table-hover table-bordered table-responsive ">
        <tr style="font-weight:bold;text-align:center;background-color:#F2F2F2">
 
@@ -280,22 +287,23 @@ else{
 
     if(isset($_GET["codisco1"])){
         $codisco=$_GET["codisco1"];
+        $connection6 = new mysqli($db_host, $db_user, $db_password, $db_name);
 
- $connection2 = new mysqli($db_host, $db_user, $db_password, $db_name);
-
-       if ($connection2->connect_errno) {
-          printf("Conexión fallida %s\n", $mysqli->connect_error);
-          exit();
-      }
+              if ($connection6->connect_errno) {
+                 printf("Conexión fallida %s\n", $mysqli->connect_error);
+                 exit();
+             }
 
 
-   $result2 = $connection2->query("SELECT D.*,DF.NOMBRE,COUNT(TITULO_C) AS NUM_CANC,A.NOMBRE_A FROM DISCO D,DISCOGRAFICA DF,CANCION C,AUTOR A WHERE D.COD_DISCOGRA=DF.COD_DISCOGRA AND D.COD_DISCO=C.COD_DISCO AND D.COD_AUTOR=A.COD_AUTOR AND D.COD_DISCO='".$codisco."' GROUP BY D.COD_DISCO");
+          $result6 = $connection6->query("SELECT D.*,DF.NOMBRE,COUNT(TITULO_C) AS NUM_CANC,A.NOMBRE_A FROM DISCO D,DISCOGRAFICA DF,CANCION C,AUTOR A WHERE D.COD_DISCOGRA=DF.COD_DISCOGRA AND D.COD_DISCO=C.COD_DISCO AND D.COD_AUTOR=A.COD_AUTOR AND D.COD_DISCO='".$codisco."' GROUP BY D.COD_DISCO");
+          $obj6 = $result6->fetch_object();
+
 
 
 
    ?>
         <div class="col-md-10 col-md-offset-1" >
-            <div class="nav nav-tabs well well-sm" style="text-align:center;"><h5 style="font-weight:bold;color:#FF8000">DETALLES DEL DISCO</h5></div>
+            <div class="nav nav-tabs well well-sm" style="text-align:center;"><h5 style="font-weight:bold;color:#FF8000;font-family:cursive">DETALLES DEL DISCO: <?php echo $obj6->TITULO; ?></h5></div>
         <div class="table-responsive">
        <table style="margin-top:-1%;text-align:center;font-size:90%" class="table table-hover table-bordered">
        <tr style="font-weight:bold">
@@ -314,6 +322,16 @@ else{
        </tr>
 
       <?php
+      $connection2 = new mysqli($db_host, $db_user, $db_password, $db_name);
+
+            if ($connection2->connect_errno) {
+               printf("Conexión fallida %s\n", $mysqli->connect_error);
+               exit();
+           }
+
+
+        $result2 = $connection2->query("SELECT D.*,DF.NOMBRE,COUNT(TITULO_C) AS NUM_CANC,A.NOMBRE_A FROM DISCO D,DISCOGRAFICA DF,CANCION C,AUTOR A WHERE D.COD_DISCOGRA=DF.COD_DISCOGRA AND D.COD_DISCO=C.COD_DISCO AND D.COD_AUTOR=A.COD_AUTOR AND D.COD_DISCO='".$codisco."' GROUP BY D.COD_DISCO");
+
           //RECORRER OBJETOS DE LA CONSULTA
           while($obj2 = $result2->fetch_object()) {
               //PINTAR CADA FILA
@@ -353,30 +371,34 @@ else{
 
     if(isset($_GET["codisco2"])){
         $codisco2=$_GET["codisco2"];
+        $connection5 = new mysqli($db_host, $db_user, $db_password, $db_name);
+            if ($connection5->connect_errno) {
+               printf("Conexión fallida %s\n", $mysqli->connect_error);
+               exit();
+           }
 
-   $connection3 = new mysqli($db_host, $db_user, $db_password, $db_name);
-       if ($connection3->connect_errno) {
-          printf("Conexión fallida %s\n", $mysqli->connect_error);
-          exit();
-      }
 
-
-   $result3 = $connection3->query("SELECT * FROM CANCION C WHERE C.COD_DISCO='".$codisco2."'");
-
+        $result5 = $connection5->query("SELECT C.* , D.TITULO FROM CANCION C, DISCO D WHERE D.COD_DISCO=C.COD_DISCO AND C.COD_DISCO='".$codisco2."'");
+        $obj5 = $result5->fetch_object();
 
 
    ?>
         <div class="col-md-8 col-md-offset-2" >
             <div class="nav nav-tabs well well-sm " style="text-align:center;">
-            <a href="./anadir_cancion.php"><button type="button" class="btn btn-success col-sm-2"><span class="glyphicon glyphicon-plus"></span> Añadir</button></a>
+            <a href="./anadir_cancion.php?codisco5=<?php echo $codisco2 ?>"><button type="button" class="btn btn-success col-sm-2"><span class="glyphicon glyphicon-plus"></span> Añadir</button></a>
             <div class="row">
-	<h5 style="font-weight:bold;color:#00BFFF;float:left;" class="col-md-offset-4">CANCIONES</h5>
-		<div class="col-md-offset-9" style="margin-right:1%">
-
-        </div>
+	<h5 style="font-weight:bold;color:#00BFFF;float:left;font-family:cursive" class="col-md-offset-3">CANCIONES DE: <?php echo $obj5->TITULO; ?></h5>
+  <div style="float:right;margin-right:1%;">
+  <a href="../pdf/listacancionesD.php?codisco4=<?php echo $codisco2 ?>"><button type="button" style=" background-color: #DF0101;color:white;font-weight:bold" class="btn btn-muted col-sm-0"
+    onMouseOver="this.style.cssText='background-color: #FF0000;color:#2E2E2E;font-weight:bold'" onMouseOut="this.style.cssText='background-color: #DF0101;color:white;font-weight:bold'"><span class="glyphicon glyphicon-download-alt"></span></button></a>
+</div>
+  <div style="float:right;margin-right:0.2%;">
+  <a href="../pdf/listacanciones.php?codisco3=<?php echo $codisco2 ?>"><button type="button" style=" background-color: #DF0101;color:white;font-weight:bold" class="btn btn-muted col-sm-0"
+    onMouseOver="this.style.cssText='background-color: #FF0000;color:#2E2E2E;font-weight:bold'" onMouseOut="this.style.cssText='background-color: #DF0101;color:white;font-weight:bold'"><span class="glyphicon glyphicon-file"></span> PDF</button></a>
+</div>
 	</div>
        </div>
-        <div class="table-responsive" >
+        <div class="table-responsive" style="height:300px;overflow: auto" >
        <table id="tcan" style="margin-top:-1%;text-align:center;font-size:90%" class="table table-hover table-bordered">
        <tr style="font-weight:bold;text-align:center;background-color:#F2F2F2">
 
@@ -390,8 +412,19 @@ else{
        </tr>
 
       <?php
+      $connection3 = new mysqli($db_host, $db_user, $db_password, $db_name);
+          if ($connection3->connect_errno) {
+             printf("Conexión fallida %s\n", $mysqli->connect_error);
+             exit();
+         }
+
+
+      $result3 = $connection3->query("SELECT C.* , D.TITULO FROM CANCION C, DISCO D WHERE D.COD_DISCO=C.COD_DISCO AND C.COD_DISCO='".$codisco2."'");
+
           //RECORRER OBJETOS DE LA CONSULTA
           while($obj3 = $result3->fetch_object()) {
+
+
               //PINTAR CADA FILA
               echo "<tr>";
 

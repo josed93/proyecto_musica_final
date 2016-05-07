@@ -25,15 +25,15 @@ GROUP BY LP.COD_DISCO";
 	$grafico->SetScale("textint");
   $grafico->xaxis->title->Set("TITULO DE CANCION");
   $grafico->xaxis->title->SetColor("darkred");
-  $grafico->xaxis->title->SetFont(FF_COURIER, FS_BOLD, 16);
+  $grafico->xaxis->title->SetFont(FF_FONT2, FS_BOLD, 16);
 
   $grafico->xaxis->SetColor("black");
-  $grafico->xaxis->SetFont(FF_ARIAL, FS_BOLD, 10);
+  $grafico->xaxis->SetFont(FF_FONT1, FS_BOLD, 10);
   $grafico->xaxis->SetTickLabels($label);
   $grafico->yaxis->title->Set("TOTAL VENTAS");
   $grafico->yaxis->title->SetColor("darkred");
-  $grafico->yaxis->title->SetFont(FF_COURIER, FS_BOLD, 16);
-  $grafico->yaxis->SetFont(FF_ARIAL, FS_BOLD, 10);
+  $grafico->yaxis->title->SetFont(FF_FONT2, FS_BOLD, 16);
+  $grafico->yaxis->SetFont(FF_FONT1, FS_BOLD, 10);
 
 
 

@@ -291,18 +291,20 @@ else{
             <div class="form-group">
                 <label>Nombre de disco:</label>
   <select name="nombredisco" class="form-control" id="sel1">';
+
+  $codisco5=$_GET['codisco5'];
  $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
 
        if ($connection->connect_errno) {
           printf("Conexión fallida %s\n", $mysqli->connect_error);
           exit();
       }
-    $result = $connection->query("SELECT DISTINCT D.TITULO,D.COD_DISCO FROM DISCO D");
+    $result = $connection->query("SELECT DISTINCT D.TITULO,D.COD_DISCO FROM DISCO D WHERE D.COD_DISCO='".$codisco5."'");
 
 
-    while($obj2 = $result->fetch_Object()){
+    $obj2 = $result->fetch_Object();
         echo "<option value='$obj2->COD_DISCO'>$obj2->TITULO</option>";
-    }
+
   echo '</select>
              </div>
 

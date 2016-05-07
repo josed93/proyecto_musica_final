@@ -257,7 +257,7 @@ else{
 
      echo '<div class="container">
      <div class="well well-sm" style="text-align:center">
-     <h5 style="font-weight:bold">AÑADIR DISCOGRÁFICAS</h5>
+     <h5 style="font-weight:bold;font-family:cursive;color:darkorange">AÑADIR DISCOGRÁFICAS</h5>
 
      </div>
 

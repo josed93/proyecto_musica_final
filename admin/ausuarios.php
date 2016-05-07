@@ -207,13 +207,22 @@ else{
       <div class="container well well-sm" style="margin-bottom:-1%">
 
 	<div class="row">
-	<h5 style="font-weight:bold;color:#00BFFF;float:left;" class="col-md-offset-5">USUARIOS REGISTRADOS</h5>
-		<div class="col-md-offset-10" style="margin-right:1%">
-            <div class="input-group custom-search-form" >
+	<h5 style="font-weight:bold;color:#00BFFF;float:left;font-family:cursive" class="col-md-offset-5">USUARIOS REGISTRADOS</h5>
+
+            <div class="input-group custom-search-form col-md-2" style="margin-right:1%;float:right" >
               <input id="sea" type="text" class="form-control" placeholder="Filtrar por nombre:">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
 
              </div>
-        </div>
+             <div style="float:right;margin-right:0.2%;">
+             <a href="../pdf/listausuariosD.php"><button type="button" style=" background-color: #DF0101;color:white;font-weight:bold" class="btn btn-muted col-sm-0"
+               onMouseOver="this.style.cssText='background-color: #FF0000;color:#2E2E2E;font-weight:bold'" onMouseOut="this.style.cssText='background-color: #DF0101;color:white;font-weight:bold'"><span class="glyphicon glyphicon-download-alt"></span></button></a>
+           </div>
+             <div style="float:right;margin-right:0.2%;">
+             <a href="../pdf/listausuarios.php"><button type="button" style=" background-color: #DF0101;color:white;font-weight:bold" class="btn btn-muted col-sm-0"
+               onMouseOver="this.style.cssText='background-color: #FF0000;color:#2E2E2E;font-weight:bold'" onMouseOut="this.style.cssText='background-color: #DF0101;color:white;font-weight:bold'"><span class="glyphicon glyphicon-file"></span> PDF</button></a>
+           </div>
+
 	</div>
     </div>
 
@@ -301,7 +310,7 @@ else{
 
    ?>
         <div class="col-md-12" >
-            <div class="nav nav-tabs well well-sm" style="text-align:center;"><h5 style="font-weight:bold;color:#FF8000">DETALLES DEL USUARIO</h5></div>
+            <div class="nav nav-tabs well well-sm" style="text-align:center;"><h5 style="font-weight:bold;color:#FF8000;font-family:cursive">DETALLES DEL USUARIO</h5></div>
         <div class="table-responsive">
        <table style="margin-top:0%;text-align:center;font-size:90%" class="table table-hover table-bordered">
        <tr style="font-weight:bold">

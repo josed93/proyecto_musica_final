@@ -278,7 +278,7 @@ else{
 
      echo '<div class="container">
      <div class="well well-sm" style="text-align:center">
-     <h5 style="font-weight:bold">EDITAR AUTORES</h5>
+     <h5 style="font-weight:bold;font-family:cursive;color:darkorange">EDITAR AUTORES</h5>
 
      </div>
 

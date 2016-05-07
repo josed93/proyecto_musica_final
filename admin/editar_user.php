@@ -289,7 +289,7 @@ else{
     <ul class="nav nav-tabs well well-sm">
       <li class="active"><a href="#home" data-toggle="tab">Datos Personales</a></li>
       <li><a href="#profile" data-toggle="tab">Datos de la Cuenta</a></li>
-      <li style="font-weight:bold;line-height:40px;font-size:120%" class="col-md-offset-2">Usuario:&nbsp'.$username.'</li>';
+      <li style="font-weight:bold;line-height:40px;font-size:120%;font-family:cursive;color:darkorange" class="col-md-offset-2">USUARIO:&nbsp'.$username.'</li>';
         if($rol_user == 'user'){
       echo '<a href="./baja_user.php?coduser='.$coduser.'" style="float:right"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Dar de baja</button></a>
       <a href="./alta_user.php?coduser='.$coduser.'" style="float:right;margin-right:1%;"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Dar de alta</button></a>';
@@ -389,7 +389,11 @@ else{
 
                 </div>';
               if ($rol_user == 'user'){
-              echo '<p><em>Estado actual de la cuenta</em>:<b> '.$estado.'</b></p>';
+                if($estado=='activo'){
+              echo '<p ><em>Estado actual de la cuenta</em>:<span style="color:green"><b> '.$estado.'</b></span></p>';
+            }else {
+              echo '<p ><em>Estado actual de la cuenta</em>:<span style="color:red"><b> '.$estado.'</b></span></p>';
+            }
                 }
               echo '</div>
 

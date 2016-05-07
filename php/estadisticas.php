@@ -51,22 +51,45 @@
 
  }
 
-	$grafico = new Graph(1200,500,"auto");
-	$grafico->SetScale("textint");
-  $grafico->xaxis->title->Set("NOMBRES");
-  $grafico->xaxis->SetTickLabels($label);
-  $grafico->yaxis->title->Set("CANTIDAD");
+ $width=1500;
+ $height=600;
 
+ // Set the basic parameters of the graph
+ $grafico = new Graph($width,$height);
+ $grafico->SetScale('textint');
 
-	$barplot1=new BarPlot($datos);
-	$barplot1->SetFillGradient("#BE81F7","#E3CEF6",GRAD_HOR);
-	$barplot1->SetWidth(80);
+ $grafico->xaxis->SetColor("purple");
+ $grafico->xaxis->SetFont(FF_FONT1, FS_BOLD, 12);
+ $grafico->xaxis->SetTickLabels($label);
 
-	$grafico->Add($barplot1);
-  $barplot1->value->SetFormat('%01.0f');
-  $barplot1->value->Show();
+ $grafico->yaxis->SetColor("darkgray");
+ $grafico->yaxis->SetFont(FF_FONT1, FS_BOLD, 12);
 
-	$grafico->Stroke();
+ $top = 60;
+ $bottom = 30;
+ $left = 150;
+ $right = 30;
+ $grafico->Set90AndMargin($left,$right,$top,$bottom);
+ $grafico->xaxis->SetLabelAlign('right','center','right');
+
+ // Label align for Y-axis
+ $grafico->yaxis->SetLabelAlign('center','bottom');
+
+ $grafico->xaxis->SetTickLabels($label);
+
+ // Create a bar pot
+ $bplot = new BarPlot($datos);
+ $bplot->SetFillGradient('cyan','purple',GRAD_HOR);
+ $bplot->SetWidth(0.3);
+ $bplot->SetYMin(1);
+
+ $grafico->Add($bplot);
+ $bplot->value->SetFormat('%01.0f');
+ $bplot->value->SetColor("black");
+ $bplot->value->SetFont(FF_FONT1, FS_BOLD, 12);
+
+$bplot->value->Show();
+ $grafico->Stroke();
   $grafico->stroke("IMG.PNG");
 
 ?>

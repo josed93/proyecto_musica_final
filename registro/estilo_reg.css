@@ -61,25 +61,3 @@ label{
     font-weight: bold;
     font-size: 13px;
 }
-
-
-
-/*-------------------------------------------Botón Enviar---------------------------------------------------*/
-#enviar{
-    margin: 20px 250px 0 0;
-    float: right;
-    width: 100px;
-    height: 25px;
-    border-radius: 5px;
-    border:solid black 0px;
-    background-color: red;
-    color: white;
-    font-weight: bold;
-    -webkit-box-shadow: 2px 2px 5px #999;
-    cursor:pointer;
-
-
-}
-#enviar:hover{
-    background: #DF0101;
-}

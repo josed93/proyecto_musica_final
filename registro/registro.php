@@ -295,7 +295,9 @@ else{
             </label>
         </div>
 
-        <input type="submit" name="sub" id="enviar" value="REGISTRAR">
+        <!--<input type="submit" name="sub" id="enviar" value="REGISTRAR">-->
+        <button type="submit" name="sub" style=" background-color: #DF0101;color:white;font-weight:bold;margin-top:2%" class="btn btn-muted col-sm-0 col-sm-offset-5"
+          onMouseOver="this.style.cssText='background-color: #FF0000;color:#2E2E2E;font-weight:bold;margin-top:2%'" onMouseOut="this.style.cssText='background-color: #DF0101;color:white;font-weight:bold;margin-top:2%'"><span class="glyphicon glyphicon-download-alt"></span> REGISTRAR</button>
 
         </form>
 

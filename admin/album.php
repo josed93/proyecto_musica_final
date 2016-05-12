@@ -204,7 +204,7 @@ else{
         <?php include("../plantilla/alerts.php");?>
 
     <div id="center" class="container">
-      <div class="container well well-sm" style="margin-bottom:-1%">
+      <div class="container well well-sm" style="margin-bottom:1%">
       <a href="./anadir_disco.php"><button type="button" class="btn btn-success col-sm-1"><span class="glyphicon glyphicon-plus"></span> Añadir</button></a>
 
 	<div class="row">
@@ -399,7 +399,7 @@ else{
 	</div>
        </div>
         <div class="table-responsive" style="height:300px;overflow: auto" >
-       <table id="tcan" style="margin-top:-1%;text-align:center;font-size:90%" class="table table-hover table-bordered">
+       <table id="tcan" style="text-align:center;font-size:90%" class="table table-hover table-bordered">
        <tr style="font-weight:bold;text-align:center;background-color:#F2F2F2">
 
            <td>TÍTULO</td>

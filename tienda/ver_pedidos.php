@@ -32,6 +32,12 @@ else{
 
 
 <body>
+  <script>
+  function oculta(id){
+    var elDiv = document.getElementById(id); //se define la variable "elDiv" igual a nuestro div
+      elDiv.style.display='none'; //damos un atributo display:none que oculta el div
+     }
+     </script>
 
 
 
@@ -284,7 +290,7 @@ else{
  </div>
 
       <div id="tabla" style="height:300px;overflow: auto" class="table-responsive">
-      <table   style="margin-top:20px;text-align:center" class="table table-hover table-bordered">
+      <table id="ped" style="margin-top:20px;text-align:center" class="table table-hover table-bordered">
           <tr class="active">
             <th style="text-align:center" >Disco</th>
             <th style="text-align:center" >Fecha Pedido</th>
@@ -308,7 +314,17 @@ else{
 
             //Si te devuelve 0 es que el usuario no esta en la base de datos.Sino si existe y mira en else
             if ($result->num_rows==0) {
-              //echo "EL USUARIO NO EXISTE";
+              echo '<hr style="border:solid 1px brown">';
+              echo '<span style="margin:5% 0 0 30%;font-size:200%;font-weight:bold;font-family:Courier New;color:brown">EL USUARIO NO TIENE PEDIDOS</span>';
+              echo '<hr style="border:solid 1px brown">';
+              echo '<script type="text/javascript">
+              $(document).ready(function(){
+                oculta("ped");
+
+              });
+
+
+                </script>';
             } else {
                   while($fila=$result->fetch_object()){
                       echo "<tr>

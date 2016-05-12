@@ -236,16 +236,17 @@ else{
       }
 
 
-   $result = $connection->query("SELECT * FROM USUARIO WHERE ROL = 'user' or USERNAME = '".$_SESSION["user"]."'");
+   $result = $connection->query("SELECT * FROM USUARIO ORDER BY ROL ASC");
 
 
    ?>
 
 
-      <div id="tu" class="col-md-8 col-md-offset-2 table-responsive">
+      <div id="tu" style="height:400px;overflow: auto" class="col-md-10 col-md-offset-1 table-responsive">
 
 
-       <table style="margin-top:2%;" class="table table-hover table-bordered ">
+       <table style="margin-top:2%;" class="table table-hover table-bordered table-responsive ">
+
        <tr style="text-align:center;font-weight:bold;background-color:#F2F2F2">
 
            <td>USERNAME</td>
@@ -258,9 +259,9 @@ else{
 
        </tr>
 
+
       <?php
 
-      $obj = $result->fetch_object();
 
           //RECORRER OBJETOS DE LA CONSULTA
           while($obj = $result->fetch_object()) {

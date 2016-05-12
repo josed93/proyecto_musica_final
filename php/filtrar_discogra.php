@@ -14,7 +14,7 @@
    $result = $connection->query("SELECT * FROM DISCOGRAFICA WHERE NOMBRE LIKE '%".$_GET['dato']."%'");
 
        echo '<table style="margin-top:2%;" class="table table-hover table-bordered table-responsive ">
-       <tr style="font-weight:bold;text-align:center">
+       <tr style="font-weight:bold;text-align:center;background-color:#F2F2F2">
 
            <td>NOMBRE</td>
            <td>FUNDACIÓN</td>

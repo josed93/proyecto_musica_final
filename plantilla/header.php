@@ -2,6 +2,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- FAVICON-->
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+
     <!--<link rel="stylesheet" href="../plantilla/plantilla.css">-->
     <script type="text/javascript" src="../jquery/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="../plantilla/plantilla.js"></script>

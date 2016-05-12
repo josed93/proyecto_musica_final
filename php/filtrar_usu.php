@@ -9,9 +9,9 @@
           exit();
       }
 
-      $result = $connection->query("SELECT * FROM USUARIO WHERE ROL = 'user' and USERNAME LIKE '%".$_GET['dato']."%'");
+      $result = $connection->query("SELECT * FROM USUARIO WHERE USERNAME LIKE '%".$_GET['dato']."%'");
       echo '<table style="margin-top:2%;" class="table table-hover table-bordered table-responsive ">
-       <tr style="text-align:center;font-weight:bold">
+       <tr style="text-align:center;font-weight:bold;background-color:#F2F2F2">
 
            <td>USERNAME</td>
            <td>ROL</td>

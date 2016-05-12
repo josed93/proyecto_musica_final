@@ -290,7 +290,7 @@ else{
         <div id="derecha" style="margin-left:5%;width:25%;height:auto;float:left;">
             <div class="form-group">
                 <label>Nombre de disco:</label>
-  <select name="nombredisco" class="form-control" id="sel1">';
+  <select name="nombredisco" class="form-control" id="sel1" readonly>';
 
   $codisco5=$_GET['codisco5'];
  $connection = new mysqli($db_host, $db_user, $db_password, $db_name);

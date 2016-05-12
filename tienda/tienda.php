@@ -279,9 +279,10 @@ else{
   <div class="row">
     <a href="../estadisticas/discosmascomprados.php"><button type="button" style="margin-left:1%" class="btn btn-primary col-sm-2"><span class="glyphicon glyphicon-stats"></span> Ver discos más vendidos</button></a>
   <h5 style="font-weight:bold;color:darkorange;float:left;font-family:cursive;font-size:120%" class="col-md-offset-3">DISCOS DE LA TIENDA</h5>
-    <div class="col-md-offset-10" style="margin-right:1%">
+    <div class="col-md-offset-9" style="margin-right:1%">
             <div class="input-group custom-search-form" >
               <input id="sti" type="text" class="form-control" placeholder="Filtrar por titulo de disco:">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
 
              </div>
         </div>

@@ -27,7 +27,9 @@ if(isset($_SESSION["user"])){
 else{
   echo '<link rel="stylesheet" href="../plantilla/plantilla.css">';
 }
-?></head>
+?>
+
+</head>
 
 
 
@@ -37,7 +39,9 @@ else{
     font-size: 90%;
   }
 
-
+  .well {
+  background: rgb(202, 230, 255);
+  }
 
   </style>
 

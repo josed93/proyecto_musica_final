@@ -30,7 +30,15 @@ if(isset($_SESSION["user"])){
 else{
   echo '<link rel="stylesheet" href="../plantilla/plantilla.css">';
 }
-?></head>
+?>
+<style>
+.well {
+background: rgb(202, 230, 255);
+}
+
+</style>
+
+</head>
 
 <body>
 
@@ -286,10 +294,10 @@ else{
 
 
      echo '<div class="container">
-    <ul class="nav nav-tabs well well-sm">
-      <li class="active"><a href="#home" data-toggle="tab">Datos Personales</a></li>
-      <li><a href="#profile" data-toggle="tab">Datos de la Cuenta</a></li>
-      <li style="font-weight:bold;line-height:40px;font-size:120%;font-family:cursive;color:darkorange" class="col-md-offset-2">USUARIO:&nbsp'.$username.'</li>';
+    <ul class="nav nav-pills well well-sm">
+      <li class="active"><a href="#home" data-toggle="tab"><span class="glyphicon glyphicon-user"></span> Datos Personales</a></li>
+      <li><a href="#profile" data-toggle="tab"><span class="glyphicon glyphicon-cog"></span> Datos de la Cuenta</a></li>
+      <li style="font-weight:bold;line-height:40px;font-size:120%;font-family:cursive;color:darkorange;margin-left:15%">USUARIO:&nbsp'.$username.'</li>';
         if($rol_user == 'user'){
       echo '<a href="./baja_user.php?coduser='.$coduser.'" style="float:right"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Dar de baja</button></a>
       <a href="./alta_user.php?coduser='.$coduser.'" style="float:right;margin-right:1%;"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Dar de alta</button></a>';
@@ -303,34 +311,40 @@ else{
 
               <div class="form-group">
                 <label>DNI</label>
-
+                <div class="input-group">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                   <input type="text" class="form-control" name="dni" value="'.$dni.'">
-
+                  </div>
               </div>
             <div class="form-group">
                 <label>Nombre</label>
-
+                <div class="input-group">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                   <input type="text" class="form-control" name="nombre" value="'.$nombre.'">
-
+                  </div>
              </div>
              <div class="form-group">
                 <label>Apellidos</label>
-
+                <div class="input-group">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                   <input type="text" class="form-control" name="apellidos" value="'.$apellidos.'">
-
+                  </div>
              </div>
 
              <div class="form-group">
                 <label>Email</label>
-
+                <div class="input-group">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
                   <input type="email" class="form-control" name="email" value="'.$email.'">
+                  </div>
 
              </div>
              <div class="form-group">
                 <label>Teléfono</label>
-
+                <div class="input-group">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
                   <input type="number" class="form-control" name="tlf" value="'.$tlf.'">
-
+                  </div>
              </div>
 
 
@@ -340,33 +354,38 @@ else{
 
               <div class="form-group">
                 <label>Fecha de Nacimiento</label>
-
+                <div class="input-group">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                   <input type="date" class="form-control" name="fecha_nac" value="'.$fecha_nac.'">
-
+                  </div>
               </div>
             <div class="form-group">
                 <label>Dirección</label>
-
+                <div class="input-group">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
                   <input type="text" class="form-control" name="direccion" value="'.$direccion.'">
-
+                  </div>
              </div>
              <div class="form-group">
                 <label>Localidad</label>
-
+                <div class="input-group">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
                   <input type="text" class="form-control" name="localidad" value="'.$localidad.'">
-
+                  </div>
              </div>
              <div class="form-group">
                 <label>Provincia</label>
-
+                <div class="input-group">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
                   <input type="text" class="form-control" name="provincia" value="'.$provincia.'">
-
+                  </div>
              </div>
              <div class="form-group">
                 <label>País</label>
-
+                <div class="input-group">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
                   <input type="text" class="form-control" name="pais" value="'.$pais.'">
-
+                  </div>
              </div>
 
 
@@ -384,9 +403,10 @@ else{
              <div id="perf1" style="margin-left:20%;width:25%;height:auto;float:left">
               <div class="form-group">
                     <label>Nueva Contraseña</label>
-
+                    <div class="input-group">
+                      <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                       <input type="password" class="form-control" name="new_pass" placeholder="Introduzca su nueva contraseña">
-
+                      </div>
                 </div>';
               if ($rol_user == 'user'){
                 if($estado=='activo'){
@@ -401,9 +421,11 @@ else{
 
                    <div class="form-group">
                     <label>Confirmar contraseña nueva</label>
+                    <div class="input-group">
+                      <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
 
                       <input type="password" class="form-control" name="check_pass" placeholder="Confirme su nueva contraseña">
-
+                      </div>
                   </div>
 
                     <div id="modif2" style="clear:left;float:right;margin-top:8%;">

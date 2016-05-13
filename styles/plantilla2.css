@@ -80,7 +80,7 @@ body{
 #login-dp2{
     min-width: 130px;
     overflow:hidden;
-    background-color:#FFBF00;
+    background-color:#FA5858;
     margin-left: -41px;
 }
 
@@ -97,8 +97,8 @@ body{
 
 }
 #login-dp2 a:hover{
-    background-color: #F7D358;
-    color:#2E64FE;
+    background-color: #F5A9A9;
+    color:#6A0888;
 }
 
 #login-dp2 #uno a{
@@ -126,14 +126,14 @@ body{
     list-style:none;
     margin-top: 20px;
     /*margin-left: 50px;*/
-    background-color: #FFBF00;
+    background-color: #FA5858;
     border-radius: 2px;
     line-height: 30px;
 }
 
 
 #ent:hover{
-    background-color: #F7D358;
+    background-color: #F5A9A9;
 
 }
 
@@ -352,13 +352,13 @@ body{
 	height:40px;
 	background-image: url(../images/top.png);
 	overflow: hidden;
-	border-bottom:4px solid #01DF01;
+	border-bottom:4px solid #04B431;
 }
 
 #top_menu div.contenedor_dos{
 	width:200px;
 	height:40px;
-	background-color: #01DF01;
+	background-color: #04B431;
 	overflow: hidden;
 	border-bottom:4px solid black;
 }
@@ -504,12 +504,12 @@ body{
 .efooter h3{
     text-align: center;
     font-family: arial;
-    color:aliceblue;
+    color:#04B431;
 }
 
 #fizq {
     font-size: 18px;
-    color:#D8D8D8;
+    color:#FA5858;
     font-family: calibri;
 
 }
@@ -611,7 +611,7 @@ body{
 #fder p{
     font-weight: bold;
     font-family: helvetica;
-    color:beige;
+    color:#FA5858;
     line-height: 32px;
 
 }

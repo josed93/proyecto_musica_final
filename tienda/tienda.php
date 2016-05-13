@@ -25,7 +25,15 @@ if(isset($_SESSION["user"])){
 else{
   echo '<link rel="stylesheet" href="../plantilla/plantilla.css">';
 }
-?></head>
+?>
+<style>
+.well {
+background: rgb(202, 230, 255);
+}
+
+</style>
+
+</head>
 
 
 

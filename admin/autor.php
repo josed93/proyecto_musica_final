@@ -30,6 +30,12 @@ else{
   echo '<link rel="stylesheet" href="../plantilla/plantilla.css">';
 }
 ?>
+<style>
+    .well {
+    background: rgb(202, 230, 255);
+    }
+
+</style>
 </head>
 
 

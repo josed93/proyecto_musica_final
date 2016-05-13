@@ -30,7 +30,14 @@ if(isset($_SESSION["user"])){
 else{
   echo '<link rel="stylesheet" href="../plantilla/plantilla.css">';
 }
-?></head>
+?>
+<style>
+.well {
+background: rgb(202, 230, 255);
+}
+
+</style>
+</head>
 
 <body>
 
@@ -269,9 +276,11 @@ else{
 
               <div class="form-group">
                 <label>TITULO</label>
+                <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-text-height"></span></span>
 
                   <input type="text" class="form-control" name="titulo">
-
+                  </div>
               </div>
 
 
@@ -280,9 +289,11 @@ else{
         <div id="centro" style="margin-left:5%;width:25%;height:auto;float:left;">
             <div class="form-group">
                 <label>DURACIÓN</label>
+                <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-play"></span></span>
 
                   <input type="text" class="form-control" name="duracion">
-
+</div>
              </div>
 
 
@@ -290,6 +301,9 @@ else{
         <div id="derecha" style="margin-left:5%;width:25%;height:auto;float:left;">
             <div class="form-group">
                 <label>Nombre de disco:</label>
+                <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-music"></span></span>
+
   <select name="nombredisco" class="form-control" id="sel1" readonly>';
 
   $codisco5=$_GET['codisco5'];
@@ -306,6 +320,7 @@ else{
         echo "<option value='$obj2->COD_DISCO'>$obj2->TITULO</option>";
 
   echo '</select>
+      </div>
              </div>
 
 

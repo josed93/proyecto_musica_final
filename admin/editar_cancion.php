@@ -30,7 +30,15 @@ if(isset($_SESSION["user"])){
 else{
   echo '<link rel="stylesheet" href="../plantilla/plantilla.css">';
 }
-?></head>
+?>
+<style>
+.well {
+background: rgb(202, 230, 255);
+}
+
+</style>
+
+</head>
 
 <body>
 
@@ -289,9 +297,11 @@ else{
 
               <div class="form-group">
                 <label>Título</label>
+                <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-text-height"></span></span>
 
                   <input type="text" class="form-control" name="titulo" value="'.$titulo.'">
-
+                  </div>
               </div>
 
 
@@ -300,9 +310,11 @@ else{
 
               <div class="form-group">
                 <label>Duración</label>
+                <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-play"></span></span>
 
                   <input type="text" class="form-control" name="duracion" value="'.$duracion.'">
-
+                  </div>
               </div>
 
         </div>

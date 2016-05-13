@@ -44,12 +44,26 @@ else{
 
 
   }
+  .well {
+  background: rgb(202, 230, 255);
+  }
 
+  /*.zoom{
+        transition: width 2s, height 2s, transform 2s;
+        -moz-transition: width 2s, height 2s, -moz-transform 2s;
+        -webkit-transition: width 1s, height 1s, -webkit-transform 1s;
+        -o-transition: width 2s, height 2s,-o-transform 2s;
+    }
+    .zoom:hover{
 
-
-
-
+        transform : scale(2);
+        -moz-transform : scale(2);
+        -webkit-transform : scale(2);
+        -o-transform : scale(2);
+    }*/
   </style>
+
+
 
     <div id="top">
         <div id="logo">
@@ -315,10 +329,10 @@ else{
 
       echo '<div>
      <ul class="nav nav-pills well well-sm">
-       <li class="active"><a href="#home" data-toggle="pill">Datos Personales</a></li>
-       <li><a href="#menu1" data-toggle="tab">Datos de la Cuenta</a></li>';
+       <li class="active"><a href="#home" data-toggle="pill"><span class="glyphicon glyphicon-user"></span> Datos Personales</a></li>
+       <li><a href="#menu1" data-toggle="tab"><span class="glyphicon glyphicon-cog"></span> Datos de la Cuenta</a></li>';
        if($_SESSION['rol']=='user'){
-       echo '<li><a href="#menu2" data-toggle="tab">Temas</a></li>';
+       echo '<li><a href="#menu2" data-toggle="tab"><span class="glyphicon glyphicon-picture"></span> Temas</a></li>';
        }
        if($_SESSION['rol']=='user'){
        echo '<a href="./baja.php" style="float:right;"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Dar de baja</button></a>';
@@ -328,7 +342,7 @@ else{
 <div class="tab-content">
   <div id="home" class="tab-pane fade in active">
 
-    <div class="container well ">';
+    <div class="container">';
       ?>
       <?php
     $consulta=("SELECT * FROM USUARIO where USERNAME='".$_SESSION['user']."' ");
@@ -344,32 +358,46 @@ $obj = $result->fetch_object();
 
       <div class="form-group">
             <label>Nombre del Usuario</label>
+            <div class="input-group">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
 
                 <input class="form-control" name="id" type="hidden"  value=<?php echo $obj->COD_USU;?> >
               <input class="form-control" type="text" name="nombre" value=<?php echo $obj->USERNAME;?> disabled>
+            </div>
 
           </div>
           <div class="form-group">
             <label>DNI</label>
+            <div class="input-group">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
 
               <input type="text" class="form-control" name="dni" value=<?php echo $obj->DNI;?>>
-
+            </div>
           </div>
 
         <div class="form-group">
             <label>Nombre</label>
+            <div class="input-group">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
               <input  class="form-control" type="text" name="nombre" value=<?php echo $obj->NOMBRE;?>>
-
+            </div>
           </div>
 
           <div class="form-group">
             <label>Apellidos</label>
+            <div class="input-group">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
               <input class="form-control" type="text"  name="apellido" value="<?php echo $obj->APELLIDOS?>">
+            </div>
           </div>
           <div class="form-group">
              <label>Email</label>
+             <div class="input-group">
+               <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
 
                <input type="email" class="form-control" name="email" value="<?php echo $obj->EMAIL?>">
+             </div>
+
 
           </div>
           <div class="form-group">
@@ -386,35 +414,41 @@ $obj = $result->fetch_object();
 
           <div class="form-group">
             <label>Fecha de Nacimiento</label>
-
+            <div class="input-group">
+              <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
               <input type="date" class="form-control" name="fecha_nac" value="<?php echo $obj->FECHA_NAC?>">
-
+            </div>
           </div>
           <div class="form-group">
               <label>Dirección</label>
 
+              <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
                 <input type="text" class="form-control" name="direccion" value="<?php echo $obj->DIRECCION?>">
-
+              </div>
            </div>
 
 
           <div class="form-group">
              <label>Localidad</label>
-
+             <div class="input-group">
+               <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
                <input type="text" class="form-control" name="localidad" value="<?php echo $obj->LOCALIDAD?>">
-
+             </div>
           </div>
           <div class="form-group">
              <label>Provincia</label>
-
+             <div class="input-group">
+               <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
                <input type="text" class="form-control" name="provincia" value="<?php echo $obj->PROVINCIA?>">
-
+             </div>
           </div>
           <div class="form-group">
              <label>País</label>
-
+             <div class="input-group">
+               <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
                <input type="text" class="form-control" name="pais" value="<?php echo $obj->PAIS?>">
-
+             </div>
           </div>
 
                 <div class="form-group">
@@ -439,7 +473,7 @@ $obj = $result->fetch_object();
   </div>
 </div>
 <div class="tab-pane fade" id="menu1">
-  <div class="container well">
+  <div class="container">
 
     <?php
   $consulta2=("SELECT * FROM USUARIO where USERNAME='".$_SESSION['user']."' ");
@@ -455,9 +489,11 @@ $obj2 = $result2->fetch_object();
 
         <div class="form-group">
           <label>Contraseña</label>
+          <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
             <input class="form-control" name="id2" type="hidden"  value=<?php echo $obj2->COD_USU;?> >
             <input type="password" class="form-control" name="old_pass" placeholder="Introduzca su contraseña actual">
-
+          </div>
         </div>
         <p><em>Para poder cambiar su contraseña debe introducir la actual y posteriormente la nueva.</em></p>
 
@@ -465,15 +501,17 @@ $obj2 = $result2->fetch_object();
           <div id="perf2" style="margin-left:5%;width:25%;height:auto;float:left">
           <div class="form-group">
               <label>Nueva Contraseña</label>
-
+              <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                 <input type="password" class="form-control" name="new_pass" placeholder="Introduzca su nueva contraseña">
-
+              </div>
           </div>
              <div class="form-group">
               <label>Confirmar contraseña nueva</label>
-
+              <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                 <input type="password" class="form-control" name="check_pass" placeholder="Confirme su nueva contraseña">
-
+              </div>
             </div>
 
               <div id="modif2" style="clear:left;float:right;margin-top:8%;">
@@ -490,7 +528,7 @@ $obj2 = $result2->fetch_object();
 </div>
 
 <div id="menu2" class="tab-pane fade">
-  <div class="container well " >
+  <div class="container " >
 
 
       <?php
@@ -522,25 +560,57 @@ $obj2 = $result2->fetch_object();
 
 
             <div class="radio">
-              <label for="opciones_0"><img src="../images/temas/0.jpg" alt="??" /></label>
+              <label for="opciones_0"><img class="zoom" src="../images/temas/0.jpg" alt="??" /></label>
                 <input type="radio" name="opciones" id="opciones_0" value="0" >
+                <button type="button" style="margin-top:5%" class="btn btn-info btn-sm col-sm-offset-2" data-toggle="modal" data-target="#myModal"><span class='glyphicon glyphicon-search'></span> Previsualizar</button>
+                <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog" style="margin-left:20%" width="1000px" height="800px">
 
+                  <img src="../images/temas/0.jpg" style="width:800px;height:600px;border-radius:1%" >
+
+                </div>
+
+                </div>
 
             </div>
             <div class="radio">
-              <label for="opciones_1"><img src="../images/temas/1.jpg" alt="??" /></label>
+              <label for="opciones_1"><img class="zoom" src="../images/temas/1.jpg" alt="??" /></label>
               <input type="radio" name="opciones" id="opciones_1" value="1" >
+              <button type="button" style="margin-top:5%" class="btn btn-info btn-sm col-sm-offset-2" data-toggle="modal" data-target="#myModa2"><span class='glyphicon glyphicon-search'></span> Previsualizar</button>
+              <div id="myModa2" class="modal fade" role="dialog">
+                <div class="modal-dialog" style="margin-left:20%" width="1000px" height="800px">
 
+                <img src="../images/temas/1.jpg" style="width:800px;height:600px;border-radius:1%">
+
+              </div>
+
+              </div>
             </div>
             <div class="radio">
-              <label for="opciones_2"><img src="../images/temas/2.jpg" alt="??" /></label>
+              <label for="opciones_2"><img class="zoom" src="../images/temas/2.jpg" alt="??" /></label>
               <input type="radio" name="opciones" id="opciones_2" value="2" >
+              <button type="button" style="margin-top:5%" class="btn btn-info btn-sm col-sm-offset-2" data-toggle="modal" data-target="#myModa3"><span class='glyphicon glyphicon-search'></span> Previsualizar</button>
+              <div id="myModa3" class="modal fade" role="dialog">
+                <div class="modal-dialog" style="margin-left:20%" width="1000px" height="800px">
 
+                <img src="../images/temas/2.jpg" style="width:800px;height:600px;border-radius:1%">
+
+              </div>
+
+              </div>
             </div>
             <div class="radio">
-              <label for="opciones_3"><img src="../images/temas/3.jpg" alt="??" /></label>
+              <label for="opciones_3"><img class="zoom" src="../images/temas/3.jpg" alt="??" /></label>
               <input type="radio" name="opciones" id="opciones_3" value="3">
+              <button type="button" style="margin-top:5%" class="btn btn-info btn-sm col-sm-offset-2" data-toggle="modal" data-target="#myModa4"><span class='glyphicon glyphicon-search'></span> Previsualizar</button>
+              <div id="myModa4" class="modal fade" role="dialog">
+                <div class="modal-dialog" style="margin-left:20%" width="1000px" height="800px">
 
+                <img src="../images/temas/3.jpg" style="width:800px;height:600px;border-radius:1%">
+
+              </div>
+
+              </div>
             </div>
 
 
@@ -548,6 +618,8 @@ $obj2 = $result2->fetch_object();
                       <div id="modif2" style="clear:left;float:right;margin-top:8%;">
                         <button type="submit" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> Modificar</button>
                       </div>
+
+
 
   </form>
   </form>

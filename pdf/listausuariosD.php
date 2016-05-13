@@ -41,7 +41,7 @@ $pdf->SetFillColor(242, 203, 139);
 
 $pdf->SetFont('Arial', '', 8);
 //CONSULTA
-$usuarios = $connection->query("SELECT * FROM USUARIO");
+$usuarios = $connection->query("SELECT * FROM USUARIO ORDER BY ROL ASC");
 
 while($obj = $usuarios->fetch_object()){
 

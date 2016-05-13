@@ -29,10 +29,19 @@ if(isset($_SESSION["user"])){
 else{
   echo '<link rel="stylesheet" href="../plantilla/plantilla.css">';
 }
-?></head>
+?>
 
+  <style>
+  .well {
+  background: rgb(202, 230, 255);
+}
 
+  </style>
+
+</head>
 <body>
+
+
 
     <div id="top">
         <div id="logo">
@@ -269,12 +278,35 @@ else{
               echo "<tr>";
               echo "<td>".$obj->USERNAME."</td>";
               echo "<td>".$obj->ROL."</td>";
-              echo "<td>".$obj->ESTADO."</td>";
+              if($obj->ESTADO=='activo'){
+              echo "<td style='color:green'>".$obj->ESTADO."</td>";
+            }else {
+              echo "<td style='color:red'>".$obj->ESTADO."</td>";
+            }
               echo "<td>".$obj->NOMBRE."</td>";
               echo "<td>".$obj->EMAIL."</td>";
+              if($obj->ROL=='admin'){
+                if($obj->USERNAME!==$_SESSION["user"]){
+
+              echo "<td><button type='button' class='btn btn-info' disabled><span class='glyphicon glyphicon-search'></span> Ver detalles</button></td>";
+
+              echo "<td><button type='button' class='btn btn-warning' disabled><span class='glyphicon glyphicon-edit'> Editar</button></td>";
+              echo "<td><button type='button' class='btn btn-danger disabled'><span class='glyphicon glyphicon-trash'> Borrar</button></td>";
+
+            }else {
               echo "<td><a href='?coduser=$obj->COD_USU'><button type='button' class='btn btn-info'><span class='glyphicon glyphicon-search'></span> Ver detalles</button></a></td>";
-              echo "<td><a href='./editar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-edit'> Editar</button></a></td>";
-              echo "<td><a href='./borrar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'> Borrar</button></a></td>";
+
+                echo "<td><a href='./editar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-edit'> Editar</button></a></td>";
+                echo "<td><a href='./borrar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'> Borrar</button></a></td>";
+
+              }
+}else {
+  echo "<td><a href='?coduser=$obj->COD_USU'><button type='button' class='btn btn-info'><span class='glyphicon glyphicon-search'></span> Ver detalles</button></a></td>";
+
+  echo "<td><a href='./editar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-edit'> Editar</button></a></td>";
+  echo "<td><a href='./borrar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'> Borrar</button></a></td>";
+
+}
 
 
 
@@ -314,7 +346,7 @@ else{
             <div class="nav nav-tabs well well-sm" style="text-align:center;"><h5 style="font-weight:bold;color:#FF8000;font-family:cursive">DETALLES DEL USUARIO</h5></div>
         <div class="table-responsive">
        <table style="margin-top:0%;text-align:center;font-size:90%" class="table table-hover table-bordered">
-       <tr style="font-weight:bold">
+       <tr style="font-weight:bold;background-color:#F2F2F2">
 
            <td>USERNAME</td>
            <td>ROL</td>

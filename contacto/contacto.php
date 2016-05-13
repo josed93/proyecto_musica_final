@@ -302,42 +302,62 @@ else{
       <div class="container">
         <div class="row">
         <div class="col-md-12">
-            <div class="well well-sm">
+            <div>
                 <form class="form-horizontal" method="post">
                     <fieldset>
                         <legend class="text-center header" style="font-family:impact">Contáctenos</legend>
 
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <span class="col-md-1 col-md-offset-1 text-center"></span>
                             <div class="col-md-8">
+                              <div class="input-group">
+                              <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+
                                 <input id="fname" name="name" type="text" placeholder="Nombre" class="form-control">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <span class="col-md-1 col-md-offset-1 text-center"></span>
                             <div class="col-md-8">
+                              <div class="input-group">
+                              <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+
                                 <input id="lname" name="name" type="text" placeholder="Apellidos" class="form-control">
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                            <span class="col-md-1 col-md-offset-1 text-center"></span>
                             <div class="col-md-8">
+                              <div class="input-group">
+                              <span class="input-group-addon"><span class="glyphicon glyphicon-link"></span></span>
+
                                 <input id="email" name="email" type="text" placeholder="Dirección de correo" class="form-control">
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-phone-square bigicon"></i></span>
+                            <span class="col-md-1 col-md-offset-1 text-center"></span>
                             <div class="col-md-8">
+                              <div class="input-group">
+                              <span class="input-group-addon"><span class="glyphicon glyphicon-earphone"></span></span>
+
                                 <input id="phone" name="phone" type="text" placeholder="Teléfono" class="form-control">
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                            <span class="col-md-1 col-md-offset-1 text-center"></span>
                             <div class="col-md-8">
+                              <div class="input-group">
+                              <span class="input-group-addon"><span class="glyphicon glyphicon-text-height"></span></span>
+
                                 <textarea class="form-control" id="message" name="message" placeholder="Introduzca tu mensaje aquí. Lo veremos cuando podamos." rows="7"></textarea>
+                                </div>
                             </div>
                         </div>
 

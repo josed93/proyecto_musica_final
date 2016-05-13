@@ -30,7 +30,15 @@ if(isset($_SESSION["user"])){
 else{
   echo '<link rel="stylesheet" href="../plantilla/plantilla.css">';
 }
-?></head>
+?>
+<style>
+  .well {
+  background: rgb(202, 230, 255);
+  }
+
+</style>
+
+</head>
 
 <body>
 
@@ -266,12 +274,16 @@ else{
 
               <div class="form-group">
                 <label>Título</label>
+                <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-text-height"></span></span>
 
                   <input type="text" class="form-control" name="titulo">
-
+                  </div>
               </div>
               <div class="form-group">
                 <label>Autor</label>
+                <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
 
                   <select name="nombreautor" class="form-control" id="sel1">';
  $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
@@ -290,27 +302,30 @@ else{
     }
   echo '</select>
 
-
+  </div>
 
               </div>
             <div class="form-group">
                 <label>Género</label>
-
+                <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-music"></span></span>
                   <input type="text" class="form-control" name="genero" >
-
+                  </div>
              </div>
 
              <div class="form-group">
                 <label>Fecha</label>
-
+                <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                   <input type="date" class="form-control" name="fecha" >
-
+                  </div>
              </div>
              <div class="form-group">
                  <label>Cantidad</label>
-
+                 <div class="input-group">
+                 <span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
                    <input type="number" class="form-control" name="cantidad" step="any">
-
+                   </div>
               </div>
 
         </div>
@@ -319,6 +334,8 @@ else{
 
               <div class="form-group">
                 <label>Carátula</label>
+                <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>
 
                   <input type="file" class="form-control" name="imagen" id="imagen" >';
             ?>
@@ -337,7 +354,7 @@ else{
                                     });
                                 </script>
 
-
+                              </div>
               </div>
               <div>
 
@@ -351,13 +368,16 @@ else{
               </div>
             <div class="form-group">
                 <label>Precio</label>
-
+                <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-euro"></span></span>
                   <input type="number" class="form-control" name="precio"  step="any">
-
+                  </div>
              </div>
              <?php
              echo '<div class="form-group">
                 <label>Discográfica:</label>
+                <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
   <select name="nombrediscografica" class="form-control" id="sel1">';
  $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
 
@@ -374,7 +394,7 @@ else{
 
     }
   echo '</select>
-
+  </div>
              </div>
 
 

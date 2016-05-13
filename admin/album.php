@@ -31,6 +31,12 @@ else{
 ?>
 <script type="text/javascript" src="../javascript/gestion_disco.js"></script>
 <script type="text/javascript" src="../javascript/gestion_cancion.js"></script>
+<style>
+.well {
+background: rgb(202, 230, 255);
+}
+
+</style>
 </head>
 
 <body>
@@ -263,8 +269,8 @@ else{
               echo "<td>".$obj->PRECIO."&nbsp€</td>";
               echo "<td><a href='?codisco1=$obj->COD_DISCO'><button type='button' class='btn btn-info'><span class='glyphicon glyphicon-search'></span> Ver detalles</button></a></td>";
               echo "<td><a href='?codisco2=$obj->COD_DISCO'><button type='button' class='btn btn-primary'><span class='glyphicon glyphicon-play-circle'></span> Ver Canciones</button></a></td>";
-              echo "<td><a href='./editar_disco.php?codisco=$obj->COD_DISCO'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-edit'> Editar</button></a></td>";
-              echo "<td><a href='./borrar_disco.php?codisco=$obj->COD_DISCO'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'> Borrar</button></a></td>";
+              echo "<td><a href='./editar_disco.php?codisco=$obj->COD_DISCO'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-edit'></span> Editar</button></a></td>";
+              echo "<td><a href='./borrar_disco.php?codisco=$obj->COD_DISCO'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Borrar</button></a></td>";
 
 
 

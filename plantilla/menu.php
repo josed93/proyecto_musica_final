@@ -1,6 +1,11 @@
 <nav id="top_menu">
-
-		<ul>
+	<?php
+	if(isset($_SESSION["user"])){
+	echo	'<ul style="margin-left:7%">';
+}else {
+	echo '<ul>';
+}
+	?>
 			<li>
 				<a href="../inicio/inicio.php"><div class="contenedor_general">
 
@@ -63,6 +68,24 @@
 
                 </div></a>
 			</li>
+			<?php
+			if(isset($_SESSION["user"])){
+
+		echo'	<li>
+			<a href="../admin/graficostotales.php"><div class="contenedor_general">
+
+				<div class="contenedor_uno">
+					<p class="texto_uno"><img src="../images/iconos_menu/estadistica.png">GRÁFICOS</p>
+				</div>
+
+				<div class="contenedor_dos">
+											<p class="texto_dos"><img src="../images/iconos_menu/estadistica.png">GRÁFICOS</p>
+				</div>
+
+							</div></a>
+		</li>';
+}
+?>
 
 
 

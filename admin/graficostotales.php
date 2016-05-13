@@ -5,12 +5,7 @@
     session_start();
     ob_start();
     if(isset($_SESSION["user"])){
-        if($_SESSION["rol"] == "admin"){
 
-        }
-        else{
-        header("Location:../inicio/inicio.php");
-        }
 
     }
     else{
@@ -200,18 +195,36 @@ else{
 
 
     </div>
-        <?php include("../admin/amenu.php");?>
+    <?php
+    if($_SESSION["rol"] == "admin"){
+      include("../admin/amenu.php");
+    }
+    else{
+    include("../plantilla/menu.php");
+    }
+    ?>
+
         <?php include("../plantilla/alerts.php");?>
 
     <div id="center" class="container">
-      <h1 style="text-align:center;margin:2% 0 1% 0;font-family:Courier New;font-weight:bold;color:purple;text-decoration:underline">ESTADÍSTICAS GENERALES</h1>
-      <img src="../php/estadisticas.php" style="width:100%;" alt="" />
-    </br></br>
-    <hr style="border:solid 1px grey">
-    <h1 style="text-align:center;margin:2% 0 1% 0;font-family:Courier New;font-weight:bold;color:#58ACFA;text-decoration:underline">PEDIDOS POR MES</h1>
-    <img src="../php/pedidos_mes.php" style="width:100%;" alt="" />
-    </br></br>
-    <hr style="border:solid 1px grey">
+      <?php
+      if($_SESSION["rol"] == "admin"){
+        echo '<h1 style="text-align:center;margin:2% 0 1% 0;font-family:Courier New;font-weight:bold;color:purple;text-decoration:underline">ESTADÍSTICAS GENERALES</h1>
+        <img src="../php/estadisticas.php" style="width:100%;" alt="" />
+      </br></br>
+      <hr style="border:solid 1px grey">';
+      }
+      ?>
+
+      <?php
+      if($_SESSION["rol"] == "admin"){
+        echo '<h1 style="text-align:center;margin:2% 0 1% 0;font-family:Courier New;font-weight:bold;color:#58ACFA;text-decoration:underline">PEDIDOS POR MES</h1>
+        <img src="../php/pedidos_mes.php" style="width:100%;" alt="" />
+        </br></br>
+        <hr style="border:solid 1px grey">';
+      }
+      ?>
+
 
     <h1 style="text-align:center;margin:2% 0 1% 0;font-family:Courier New;font-weight:bold;color:darkred;text-decoration:underline">DISCOS MÁS VENDIDOS</h1>
     <img src="../php/discosmasvendidos.php" style="width:100%;" alt="" />

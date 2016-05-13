@@ -80,7 +80,7 @@ body{
 #login-dp2{
     min-width: 130px;
     overflow:hidden;
-    background-color:#FFBF00;
+    background-color:#A4A4A4;
     margin-left: -41px;
 }
 
@@ -97,8 +97,8 @@ body{
 
 }
 #login-dp2 a:hover{
-    background-color: #F7D358;
-    color:#2E64FE;
+    background-color: #D8D8D8;
+    color:#0B610B;
 }
 
 #login-dp2 #uno a{
@@ -126,14 +126,14 @@ body{
     list-style:none;
     margin-top: 20px;
     /*margin-left: 50px;*/
-    background-color: #FFBF00;
+    background-color: #A4A4A4;
     border-radius: 2px;
     line-height: 30px;
 }
 
 
 #ent:hover{
-    background-color: #F7D358;
+    background-color: #D8D8D8;
 
 }
 
@@ -504,12 +504,12 @@ body{
 .efooter h3{
     text-align: center;
     font-family: arial;
-    color:aliceblue;
+    color:#FF0000;
 }
 
 #fizq {
     font-size: 18px;
-    color:#D8D8D8;
+    color:#A4A4A4;
     font-family: calibri;
 
 }
@@ -611,7 +611,7 @@ body{
 #fder p{
     font-weight: bold;
     font-family: helvetica;
-    color:beige;
+    color:#A4A4A4;
     line-height: 32px;
 
 }

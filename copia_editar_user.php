@@ -397,11 +397,10 @@ background: rgb(202, 230, 255);
         </div>
 
       </div>
-      <div class="tab-pane fade" id="profile">';
-      ?>
-      <?php
+      <div class="tab-pane fade" id="profile">
 
-             echo '<div id="perf1" style="margin-left:20%;width:25%;height:auto;float:left">
+
+             <div id="perf1" style="margin-left:20%;width:25%;height:auto;float:left">
               <div class="form-group">
                     <label>Nueva Contraseña</label>
                     <div class="input-group">

@@ -1,5 +1,8 @@
 <?php
+session_start();
+ob_start();
   include_once("../plantilla/db_configuration.php");
+
 ?>
  <?php
     $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
@@ -27,15 +30,37 @@
           while($obj = $result->fetch_object()) {
               //PINTAR CADA FILA
               echo "<tr>";
-
               echo "<td>".$obj->USERNAME."</td>";
               echo "<td>".$obj->ROL."</td>";
-              echo "<td>".$obj->ESTADO."</td>";
+              if($obj->ESTADO=='activo'){
+              echo "<td style='color:green'>".$obj->ESTADO."</td>";
+            }else {
+              echo "<td style='color:red'>".$obj->ESTADO."</td>";
+            }
               echo "<td>".$obj->NOMBRE."</td>";
               echo "<td>".$obj->EMAIL."</td>";
+              if($obj->ROL=='admin'){
+                if($obj->USERNAME!==$_SESSION["user"]){
+
+              echo "<td><button type='button' class='btn btn-info' disabled><span class='glyphicon glyphicon-search'></span> Ver detalles</button></td>";
+
+              echo "<td><button type='button' class='btn btn-warning' disabled><span class='glyphicon glyphicon-edit'> Editar</button></td>";
+              echo "<td><button type='button' class='btn btn-danger disabled'><span class='glyphicon glyphicon-trash'> Borrar</button></td>";
+
+            }else {
               echo "<td><a href='?coduser=$obj->COD_USU'><button type='button' class='btn btn-info'><span class='glyphicon glyphicon-search'></span> Ver detalles</button></a></td>";
-              echo "<td><a href='./editar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-edit'> Editar</button></a></td>";
-              echo "<td><a href='./borrar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'> Borrar</button></a></td>";
+
+                echo "<td><a href='./editar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-edit'> Editar</button></a></td>";
+                echo "<td><a href='./borrar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'> Borrar</button></a></td>";
+
+              }
+  }else {
+  echo "<td><a href='?coduser=$obj->COD_USU'><button type='button' class='btn btn-info'><span class='glyphicon glyphicon-search'></span> Ver detalles</button></a></td>";
+
+  echo "<td><a href='./editar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-edit'> Editar</button></a></td>";
+  echo "<td><a href='./borrar_user.php?coduser=$obj->COD_USU'><button type='button' class='btn btn-danger'><span class='glyphicon glyphicon-trash'> Borrar</button></a></td>";
+
+  }
 
 
 

@@ -1,4 +1,6 @@
 <?php
+session_start();
+ob_start();
   include_once("../plantilla/db_configuration.php");
 ?><?php
 $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
@@ -11,7 +13,6 @@ if($connection->connect_errno){
 $style=$_POST['opciones'];
 
  $id=$_POST['id'];
- var_dump($id);
   $consulta=("SELECT * FROM USUARIO where COD_USU=$id");
  $consulta_mysql2="UPDATE USUARIO SET STYLE=$style WHERE COD_USU=$id";
 
@@ -20,7 +21,6 @@ $style=$_POST['opciones'];
 
    if($connection->query($consulta_mysql2)==true){
      include_once("../plantilla/logout.php");
-ECHO "REALIZADO";
 
 
    }else{
@@ -33,7 +33,6 @@ ECHO "REALIZADO";
 
    include_once("../plantilla/logout.php");
 
-    ECHO "REALIZADO2";
 
 
     }else{
@@ -47,7 +46,6 @@ ECHO "REALIZADO";
 
    include_once("../plantilla/logout.php");
 
-    ECHO "REALIZADO2";
 
 
     }else{
@@ -61,7 +59,6 @@ ECHO "REALIZADO";
 
    include_once("../plantilla/logout.php");
 
-    ECHO "REALIZADO2";
 
 
     }else{

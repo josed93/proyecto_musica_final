@@ -34,6 +34,7 @@ else{
   .radio img{
       width: 90%;
       height: 90%;
+      border-radius: 2%;
 
 
   }
@@ -43,24 +44,24 @@ else{
     height: 20%;
 
 
+
   }
   .well {
   background: rgb(202, 230, 255);
   }
+  #menu2 p{
+    font-weight: bold;
+    margin-top: 5%;
+    margin-left: -15%;
+    text-align: center;
+    /*font-style: italic;*/
+    font-family: arial black;
 
-  /*.zoom{
-        transition: width 2s, height 2s, transform 2s;
-        -moz-transition: width 2s, height 2s, -moz-transform 2s;
-        -webkit-transition: width 1s, height 1s, -webkit-transform 1s;
-        -o-transition: width 2s, height 2s,-o-transform 2s;
-    }
-    .zoom:hover{
 
-        transform : scale(2);
-        -moz-transform : scale(2);
-        -webkit-transform : scale(2);
-        -o-transform : scale(2);
-    }*/
+
+  }
+
+
   </style>
 
 
@@ -551,6 +552,7 @@ $obj2 = $result2->fetch_object();
 
 
   $obj3 = $result3->fetch_object();
+  $estilo=$obj3->STYLE;
 
 
     ?>
@@ -561,7 +563,13 @@ $obj2 = $result2->fetch_object();
 
             <div class="radio">
               <label for="opciones_0"><img class="zoom" src="../images/temas/0.jpg" alt="??" /></label>
-                <input type="radio" name="opciones" id="opciones_0" value="0" >
+              <?php
+                if($estilo=="0"){
+                echo '<input type="radio" name="opciones" id="opciones_0" value="0" checked>';
+              }else{
+                echo '<input type="radio" name="opciones" id="opciones_0" value="0" >';
+              }
+              ?>
                 <button type="button" style="margin-top:5%" class="btn btn-info btn-sm col-sm-offset-2" data-toggle="modal" data-target="#myModal"><span class='glyphicon glyphicon-search'></span> Previsualizar</button>
                 <div id="myModal" class="modal fade" role="dialog">
                 <div class="modal-dialog" style="margin-left:20%" width="1000px" height="800px">
@@ -572,10 +580,19 @@ $obj2 = $result2->fetch_object();
 
                 </div>
 
+                <p >Tema por defecto</p>
+
+
             </div>
             <div class="radio">
               <label for="opciones_1"><img class="zoom" src="../images/temas/1.jpg" alt="??" /></label>
-              <input type="radio" name="opciones" id="opciones_1" value="1" >
+              <?php
+                if($estilo=="1"){
+                echo '<input type="radio" name="opciones" id="opciones_1" value="1" checked>';
+              }else{
+                echo '<input type="radio" name="opciones" id="opciones_1" value="1" >';
+              }
+              ?>
               <button type="button" style="margin-top:5%" class="btn btn-info btn-sm col-sm-offset-2" data-toggle="modal" data-target="#myModa2"><span class='glyphicon glyphicon-search'></span> Previsualizar</button>
               <div id="myModa2" class="modal fade" role="dialog">
                 <div class="modal-dialog" style="margin-left:20%" width="1000px" height="800px">
@@ -585,10 +602,19 @@ $obj2 = $result2->fetch_object();
               </div>
 
               </div>
+
+              <p>Tema rosado y verde</p>
+
             </div>
             <div class="radio">
               <label for="opciones_2"><img class="zoom" src="../images/temas/2.jpg" alt="??" /></label>
-              <input type="radio" name="opciones" id="opciones_2" value="2" >
+              <?php
+                if($estilo=="2"){
+                echo '<input type="radio" name="opciones" id="opciones_2" value="2" checked>';
+              }else{
+                echo '<input type="radio" name="opciones" id="opciones_2" value="2" >';
+              }
+              ?>
               <button type="button" style="margin-top:5%" class="btn btn-info btn-sm col-sm-offset-2" data-toggle="modal" data-target="#myModa3"><span class='glyphicon glyphicon-search'></span> Previsualizar</button>
               <div id="myModa3" class="modal fade" role="dialog">
                 <div class="modal-dialog" style="margin-left:20%" width="1000px" height="800px">
@@ -598,10 +624,18 @@ $obj2 = $result2->fetch_object();
               </div>
 
               </div>
+              <p>Tema naranja y azul</p>
+
             </div>
             <div class="radio">
               <label for="opciones_3"><img class="zoom" src="../images/temas/3.jpg" alt="??" /></label>
-              <input type="radio" name="opciones" id="opciones_3" value="3">
+              <?php
+                if($estilo=="3"){
+                echo '<input type="radio" name="opciones" id="opciones_3" value="3" checked>';
+              }else{
+                echo '<input type="radio" name="opciones" id="opciones_3" value="3" >';
+              }
+              ?>
               <button type="button" style="margin-top:5%" class="btn btn-info btn-sm col-sm-offset-2" data-toggle="modal" data-target="#myModa4"><span class='glyphicon glyphicon-search'></span> Previsualizar</button>
               <div id="myModa4" class="modal fade" role="dialog">
                 <div class="modal-dialog" style="margin-left:20%" width="1000px" height="800px">
@@ -611,11 +645,14 @@ $obj2 = $result2->fetch_object();
               </div>
 
               </div>
+              <p>Tema rojo y gris</p>
+
+
             </div>
 
 
 
-                      <div id="modif2" style="clear:left;float:right;margin-top:8%;">
+                      <div id="modif2" style="clear:left;float:right;margin-top:20%;">
                         <button type="submit" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> Modificar</button>
                       </div>
 

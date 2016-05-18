@@ -312,7 +312,7 @@ background: rgb(202, 230, 255);
             <div class="nav nav-tabs well well-sm" style="text-align:center;"><h5 style="font-weight:bold;color:#FF8000;font-family:cursive">DETALLES DEL DISCO: <?php echo $obj6->TITULO; ?></h5></div>
         <div class="table-responsive">
        <table style="margin-top:-1%;text-align:center;font-size:90%" class="table table-hover table-bordered">
-       <tr style="font-weight:bold">
+       <tr style="font-weight:bold;background-color:#F2F2F2">
 
            <td>TÍTULO</td>
            <td>AUTOR</td>

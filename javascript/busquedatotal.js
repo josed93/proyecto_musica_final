@@ -23,7 +23,6 @@ $(document).ready(function(){
                           $("#resultado").html();
                     },
                     error: function(){
-                          alert("error petición ajax");
                     },
                     success: function(data){
                           $("#resultado").empty();

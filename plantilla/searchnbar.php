@@ -24,7 +24,7 @@ if(isset($_SESSION["user"])){
       if($_SESSION["rol"] == "admin"){
       echo'  <div class="input-group" id="adv-search" style="width:400px;">
 
-            <input id="buscar" type="text" style="width:300px;" class="form-control" placeholder="Zona de Administración " disabled />
+            <input id="buscar"  type="text" style="width:300px;text-align:center;font-weight:bold;background-color:#CECEF6" class="form-control" placeholder="Zona de Administración " disabled />
 
 
         </div>';

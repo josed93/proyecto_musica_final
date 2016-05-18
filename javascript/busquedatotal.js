@@ -54,7 +54,7 @@ $("div:not(#resultado)").on("click", function(event) {
                 $("#resultado").html();
           },
           error: function(){
-                alert("error petición ajax");
+                
           },
           success: function(data){
                 $("#resultado").empty();

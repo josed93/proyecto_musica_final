@@ -660,6 +660,8 @@ $obj2 = $result2->fetch_object();
 
   </form>
   </form>
+  <span><p style="font-style:italic;margin-left:-60%;font-family:courier new">*Para aplicar los cambios es necesario cerrar la sesión.</p></span>
+
   <?php
 }else{
 

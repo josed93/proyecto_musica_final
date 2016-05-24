@@ -10,7 +10,6 @@
     <script type="text/javascript" src="../jquery/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="../plantilla/plantilla.js"></script>
     <script src="../javascript/busquedatotal.js"></script>
-    <script type="text/javascript" src="../javascript/gestion_todo.js"></script>
 
     <!-- Versión compilada y comprimida del CSS de Bootstrap -->
 
